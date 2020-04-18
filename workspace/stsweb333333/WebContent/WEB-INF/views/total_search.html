@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/search.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <title>메인페이지</title>
+</head>
+<body>
+  <script>
+    var chgimg; //바뀔 이미지 주소
+    var loc;    //zoom될 위치
+    function fn_list_chgImg(chgimg,loc){
+      document.getElementById(loc).src = chgimg;
+    }
+
+  </script>
+
+  <div class="all">
+    <header class="header">
+        <div class="top">
+          <!-- 로고와 제목 -->
+          <div class="title">
+            <img class="logo" src="common/image/logo.gif" alt="logo">
+            <h2>서울맛집찾기</h2>
+          </div>
+
+          <!-- 검색창 -->
+          <div class="search">
+              <input class="searchtext" type="text"/>
+              <button type="button">검색</button>
+          </div>
+        </div>
+        <!-- 공통 네비게이션 -->
+        <nav>
+          <div class="nav">
+            <ul class="">
+              <li><a class="active" href="#">지역별맛집</a></li>
+              <li><a href="#">테마별맛집</a></li>
+              <li><a href="#">예약맛집</a></li>
+              <button type="button" class="login">로그인</button>
+              <button type="button" class="login">회원가입</button>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+  <section>
+    <nav>
+      <div class="nav2">
+        <ul class="">
+          <li><a class="active" href="#">검색 결과: 5개</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- 우측 nav start -->
+  <div class="container2" id="detail-cont">
+    <table>
+      <tr>
+        <td width="400">
+          <img src="image_main/number/one.png" alt="">
+          수엔부 |
+          <img src="image_main/icon/hansik.gif">
+          한식 | (031)250-3305
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="zoom">
+            <img id="zoomimg_01" src="image_main/snb01.jpg" width="200">
+          </div>
+          <ul class="zoomimg_list">
+            <div class="box1">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb01.jpg', 'zoomimg_01')">
+                <img src="image_main/snb01.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb02.jpg', 'zoomimg_01')">
+                <img src="image_main/snb02.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb03.jpg', 'zoomimg_01')">
+                <img src="image_main/snb03.jpg" width="60"></a>
+              </li>
+            </div>
+            <div class="box2">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb04.jpg', 'zoomimg_01')">
+                <img src="image_main/snb04.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb05.jpg', 'zoomimg_01')">
+                <img src="image_main/snb05.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb06.jpg', 'zoomimg_01')">
+                <img src="image_main/snb06.jpg" width="60"></a>
+              </li>
+            </div>
+
+
+            <li class="btnMore">
+              <a href="#" class="picture_btn" target="_blank">사진 더보기</a>
+            </li>
+         </ul>
+        </td>
+        <td width="450">
+          <p>경기 수원시 팔달구 매산로2가 97-5 2층</p><br>
+          <hr>
+          <p>수원역에 위치한 인도 네팔요리 전문점 '수엠부' 네팔 현지의 맛을 그대로 재현한다! 네팔 현지인이 직접 운영하고,현지 주방장이 만들어 내는 그 특별한 네팔 요리의 향연. 더욱이 저렴한 가격에 푸짐한 현지의 깊은 맛을 경험할 수 있어 많..</p>
+          <hr>
+          <a href="#" class="detail_btn">상세정보</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="400">
+          <img src="image_main/number/two.png" alt="">
+          수엔부 |
+          <img src="image_main/icon/hansik.gif">
+          한식 | (031)250-3305
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="zoom">
+            <img id="zoomimg_02" src="image_main/snb01.jpg" width="200">
+          </div>
+          <ul class="zoomimg_list">
+            <div class="box1">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb01.jpg', 'zoomimg_02')">
+                <img src="image_main/snb01.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb02.jpg', 'zoomimg_02')">
+                <img src="image_main/snb02.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb03.jpg', 'zoomimg_02')">
+                <img src="image_main/snb03.jpg" width="60"></a>
+              </li>
+            </div>
+            <div class="box2">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb04.jpg', 'zoomimg_02')">
+                <img src="image_main/snb04.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb05.jpg', 'zoomimg_02')">
+                <img src="image_main/snb05.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb06.jpg', 'zoomimg_02')">
+                <img src="image_main/snb06.jpg" width="60"></a>
+              </li>
+            </div>
+
+
+            <li class="btnMore">
+              <a href="#" class="picture_btn" target="_blank">사진 더보기</a>
+            </li>
+         </ul>
+        </td>
+        <td width="450">
+          <p>경기 수원시 팔달구 매산로2가 97-5 2층</p><br>
+          <hr>
+          <p>수원역에 위치한 인도 네팔요리 전문점 '수엠부' 네팔 현지의 맛을 그대로 재현한다! 네팔 현지인이 직접 운영하고,현지 주방장이 만들어 내는 그 특별한 네팔 요리의 향연. 더욱이 저렴한 가격에 푸짐한 현지의 깊은 맛을 경험할 수 있어 많..</p>
+          <hr>
+          <a href="#" class="detail_btn">상세정보</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="400">
+          <img src="image_main/number/three.png" alt="">
+          수엔부 |
+          <img src="image_main/icon/hansik.gif">
+          한식 | (031)250-3305
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="zoom">
+            <img id="zoomimg_03" src="image_main/snb01.jpg" width="200">
+          </div>
+          <ul class="zoomimg_list">
+            <div class="box1">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb01.jpg', 'zoomimg_03')">
+                <img src="image_main/snb01.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb02.jpg', 'zoomimg_03')">
+                <img src="image_main/snb02.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb03.jpg', 'zoomimg_03')">
+                <img src="image_main/snb03.jpg" width="60"></a>
+              </li>
+            </div>
+            <div class="box2">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb04.jpg', 'zoomimg_03')">
+                <img src="image_main/snb04.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb05.jpg', 'zoomimg_03')">
+                <img src="image_main/snb05.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb06.jpg', 'zoomimg_03')">
+                <img src="image_main/snb06.jpg" width="60"></a>
+              </li>
+            </div>
+
+
+            <li class="btnMore">
+              <a href="#" class="picture_btn" target="_blank">사진 더보기</a>
+            </li>
+         </ul>
+        </td>
+        <td width="450">
+          <p>경기 수원시 팔달구 매산로2가 97-5 2층</p><br>
+          <hr>
+          <p>수원역에 위치한 인도 네팔요리 전문점 '수엠부' 네팔 현지의 맛을 그대로 재현한다! 네팔 현지인이 직접 운영하고,현지 주방장이 만들어 내는 그 특별한 네팔 요리의 향연. 더욱이 저렴한 가격에 푸짐한 현지의 깊은 맛을 경험할 수 있어 많..</p>
+          <hr>
+          <a href="#" class="detail_btn">상세정보</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="400">
+          <img src="image_main/number/four.png" alt="">
+          수엔부 |
+          <img src="image_main/icon/hansik.gif">
+          한식 | (031)250-3305
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="zoom">
+            <img id="zoomimg_03" src="image_main/snb01.jpg" width="200">
+          </div>
+          <ul class="zoomimg_list">
+            <div class="box1">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb01.jpg', 'zoomimg_03')">
+                <img src="image_main/snb01.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb02.jpg', 'zoomimg_03')">
+                <img src="image_main/snb02.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb03.jpg', 'zoomimg_03')">
+                <img src="image_main/snb03.jpg" width="60"></a>
+              </li>
+            </div>
+            <div class="box2">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb04.jpg', 'zoomimg_03')">
+                <img src="image_main/snb04.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb05.jpg', 'zoomimg_03')">
+                <img src="image_main/snb05.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb06.jpg', 'zoomimg_03')">
+                <img src="image_main/snb06.jpg" width="60"></a>
+              </li>
+            </div>
+
+
+            <li class="btnMore">
+              <a href="#" class="picture_btn" target="_blank">사진 더보기</a>
+            </li>
+         </ul>
+        </td>
+        <td width="450">
+          <p>경기 수원시 팔달구 매산로2가 97-5 2층</p><br>
+          <hr>
+          <p>수원역에 위치한 인도 네팔요리 전문점 '수엠부' 네팔 현지의 맛을 그대로 재현한다! 네팔 현지인이 직접 운영하고,현지 주방장이 만들어 내는 그 특별한 네팔 요리의 향연. 더욱이 저렴한 가격에 푸짐한 현지의 깊은 맛을 경험할 수 있어 많..</p>
+          <hr>
+          <a href="#" class="detail_btn">상세정보</a>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="400">
+          <img src="image_main/number/five.png" alt="">
+          수엔부 |
+          <img src="image_main/icon/hansik.gif">
+          한식 | (031)250-3305
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="zoom">
+            <img id="zoomimg_03" src="image_main/snb01.jpg" width="200">
+          </div>
+          <ul class="zoomimg_list">
+            <div class="box1">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb01.jpg', 'zoomimg_03')">
+                <img src="image_main/snb01.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb02.jpg', 'zoomimg_03')">
+                <img src="image_main/snb02.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb03.jpg', 'zoomimg_03')">
+                <img src="image_main/snb03.jpg" width="60"></a>
+              </li>
+            </div>
+            <div class="box2">
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb04.jpg', 'zoomimg_03')">
+                <img src="image_main/snb04.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb05.jpg', 'zoomimg_03')">
+                <img src="image_main/snb05.jpg" width="60"></a>
+              </li>
+              <li>
+                <a href="javascript:;" onmouseover="fn_list_chgImg('image_main/snb06.jpg', 'zoomimg_03')">
+                <img src="image_main/snb06.jpg" width="60"></a>
+              </li>
+            </div>
+
+
+            <li class="btnMore">
+              <a href="#" class="picture_btn" target="_blank">사진 더보기</a>
+            </li>
+         </ul>
+        </td>
+        <td width="450">
+          <p>경기 수원시 팔달구 매산로2가 97-5 2층</p><br>
+          <hr>
+          <p>수원역에 위치한 인도 네팔요리 전문점 '수엠부' 네팔 현지의 맛을 그대로 재현한다! 네팔 현지인이 직접 운영하고,현지 주방장이 만들어 내는 그 특별한 네팔 요리의 향연. 더욱이 저렴한 가격에 푸짐한 현지의 깊은 맛을 경험할 수 있어 많..</p>
+          <hr>
+          <a href="#" class="detail_btn">상세정보</a>
+        </td>
+      </tr>
+    </table>
+    <div class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#" class="active">1</a>
+      <a href="#" >2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#">&raquo;</a>
+    </div>
+  </div>
+</section>
+</div>
+
+
+</body>
+
+
+<footer>
+    회사소개 사업분야 광고및제휴 채용정보 개인정보취급방침 고객센터<br>
+
+    (주)메뉴판닷컴 성남시 분당구 서현동 성남대로 87-1길 사업자등록번호 010-7550-6738<br>
+
+    통신판매신고 2015-서울서초-0332호
+    대표이사 이동현 대표전화 02-1992-0117 FAX 028-1992-0117 eagle0117@naver.com<br>
+    copyright (주)메뉴판닷컴 All right reserved.
+
+</footer>
+
+</html>

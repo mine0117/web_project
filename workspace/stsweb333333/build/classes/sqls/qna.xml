@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="qna">
+	
+	<select id="selectqnaList" resultType="com.hk.th.vo.qnaVo">
+		select * from question order by q_num desc
+	</select>
+	
+	<insert id="insertqna" parameterType="com.hk.th.vo.qnaVo">
+		insert into question(q_num,q_id,q_title,q_contents,q_hits,q_date)	
+		values((select ifnull(max(a.q_num)+1,1) as q_num from question a),0,#{q_title},#{q_contents},0,now())
+	</insert>
+	
+	<select id="detailqna" resultType="com.hk.th.vo.qnaVo">
+		select * from question where q_num=#{q_num}
+	</select>
+	
+	<select id="deleteqna" parameterType="String">
+		delete from question where q_num=#{q_num}
+	</select>
+	
+	<select id="updateqna" parameterType="com.hk.th.vo.qnaVo">
+		update question set q_title=#{q_title},q_id=0,q_contents=#{q_contents},q_date=now()
+		where q_num=#{q_num}
+	</select>
+	
+	<select id="selectqnaBynum" resultType="com.hk.th.vo.qnaVo" >
+		select q_num,q_title,q_id,q_contents,q_hits,q_date from question where q_num=#{q_num}
+	</select>
+	
+	<select id="updatehitscount" parameterType="hashmap">
+		update question set q_hits=q_hits+1 where q_num=#{num}
+	</select>
+	
+	<select id="searchId" resultType="com.hk.th.vo.qnaVo" parameterType="hashmap">		
+      <if test="searchtype != null">	
+		<if test="searchtype=='q_id'.toString()">
+			select q_num,q_title,q_id,q_date,q_hits from question where q_id like concat('%',#{keyword},'%')
+		</if>
+		<if test="searchtype=='q_title'.toString()">
+			select q_num,q_title,q_id,q_date,q_hits from question where q_title like concat('%',#{keyword},'%')
+		</if>
+	   </if>		
+	</select>
+	<!-- <select id="searchtotalCount" resultType="Integer">
+		
+	</select> -->
+	
+</mapper>

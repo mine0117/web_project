@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Mainres">
+	
+	<select id ="Selectmrestlist" resultType="com.hk.th.vo.resVo">
+		select * from res r, region n where r.map_num=n.map_num;
+	</select>
+
+	<select id ="selectResByMap" resultType="com.hk.th.vo.resVo" parameterType="Integer">
+		select * from res where map_num=#{num};
+	</select>
+		
+	<select id ="selectResBytheme" resultType="com.hk.th.vo.resVo" parameterType="Integer">
+		select * from res where theme=#{theme};
+	</select>
+		
+	<select id ="southreslist" resultType="com.hk.th.vo.resVo">
+		select * from res r left outer join region n on r.map_num=n.map_num where r.map_num= #{map_num};
+	</select> 
+	
+	<select id ="Selectlinelist"  parameterType="String" resultType="com.hk.th.vo.resVo">
+		select * from res where line=#{line};
+	</select>
+	
+</mapper>

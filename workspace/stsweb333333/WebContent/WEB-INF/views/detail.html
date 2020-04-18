@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+  <meta charset="utf-8">
+  <title>음식점상세정보</title>
+  <link rel="stylesheet" href="css/detail.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+    $(function(){
+
+      $('nav li a').click(function(){
+        $('nav li a').removeClass('active');
+        $(this).addClass('active');
+
+        var idVal=$(this).attr('href');
+        //console.log($(idVal).offset().top);
+        $('html,body').animate({
+          scrollTop:$(idVal).offset().top
+        },1000);
+      });
+
+      //위로가기 버튼
+      //스크롤이벤트(스크롤의 위치에 따라 위로가기버튼 활성화체크)
+      $(window).scroll(function(){//브라우저에 스크롤을 움직이면 실행됨
+        //스크롤의 위치 구하기
+        var windowTop=$(window).scrollTop();//스크롤의 현재위치
+        // console.log(windowTop);  //콘솔에 뿌려보자
+        if(windowTop>100){
+          $('#goTop').addClass('on');
+        }else{
+          $('#goTop').removeClass('on');
+        }
+      });
+
+      //위로가기 버튼 누르면 스크롤을 위쪽으로 이동
+
+      $('#goTop').click(function(){
+        $('html,body').animate({
+          scrollTop:0
+        },1000);
+      });
+
+    })
+    <!-- 메뉴판 js -->
+
+
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+  <!-- 슬라이드 script-->
+
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      var captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+
+
+  </script>
+  </head>
+  <body>
+    <!-- 전체 네비게이션 -->
+    <div id="Top" class="Top">
+      <div class="header">
+        <p>랍스타코(The Lobster co.)</p>
+        <nav class="jieon">
+          <ul>
+            <li><a class="active"  href="#Rmap">상세정보</a></li>
+            <li><a href="#menu">메뉴</a></li>
+            <li><a href="#Review">리뷰&평가</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- 전체 네비게이션 끝 -->
+
+    <!-- 이미지 슬라이드 -->
+    <!-- 큰이미지 -->
+    <div class="section_basic">
+        <div class="container">
+          <div class="mySlides">
+            <div class="numbertext">메뉴1</div>
+              <img src="image_detail/r1071155_z.jpg" alt="대체이미지1" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">메뉴2</div>
+              <img src="image_detail/r10711511_z.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">메뉴3</div>
+              <img src="image_detail/r1071152.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">내부1</div>
+              <img src="image_detail/r107115a.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">내부2</div>
+              <img src="image_detail/r1071151.jpg" style="width:100%">
+          </div>
+
+          <div class="mySlides">
+            <div class="numbertext">기본이미지</div>
+              <img src="image_detail/r1071159.jpg" style="width:100%">
+          </div>
+
+          <!-- 이전,다음 버튼 -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+          <!-- 하단썸네일 -->
+          <div class="row">
+            <div class="column">
+              <img class="demo cursor" src="image_detail/r1071155.jpg" style="width:100%" onclick="currentSlide(1)" alt="메뉴1">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="image_detail/r10711511.jpg" style="width:100%" onclick="currentSlide(2)" alt="메뉴2">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="image_detail/r1071152.jpg" style="width:100%" onclick="currentSlide(3)" alt="메뉴3">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="image_detail/r107115a.jpg" style="width:100%" onclick="currentSlide(4)" alt="내부1">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="image_detail/r1071151.jpg" style="width:100%" onclick="currentSlide(5)" alt="내부2">
+            </div>
+            <div class="column">
+              <img class="demo cursor" src="image_detail/r1071159.jpg" style="width:100%" onclick="currentSlide(6)" alt="기본이미지">
+            </div>
+          </div>
+        </div> <!--슬라이드끝  -->
+
+        <div class="info">
+          <ul class="Rname" id="Rname">
+            <li class="Rcul">업체명</li>
+            <li class="Des"> 랍스타코(The Lobster co.)</li>
+          </ul>
+          <ul class="Rtype" id="Rtype">
+            <li class="Rcul">업종</li>
+            <li class="Des">양식-해물요리</li>
+          </ul>
+          <ul class="Rnumber" id="Rnumber">
+            <li class="Rcul">전화번호</li>
+            <li class="Des">(070)4177-3473</li>
+          </ul>
+          <ul class="Rhomep" id="Rhomep">
+            <li class="Rcul">홈페이지</li>
+            <li class="Des">http://www.lifequotes.co.kr/</li>
+          </ul>
+          <ul class="Rgrade" id="Rgrade">
+            <li class="Rcul" id="Rcul">평점</li>
+            <li class="Des">
+              <p class="point">
+                <span class="star">
+                    <img src="image_detail/ic_makestar_00.gif">
+                    <img src="image_detail/ic_makestar_00.gif">
+                    <img src="image_detail/ic_makestar_00.gif">
+                    <img src="image_detail/ic_makestar_00.gif">
+                    <img src="image_detail/ic_makestar_00.gif">
+                </span><!-- ☆☆☆☆☆ //-->
+                <span class="total">4.0</span>
+                <span class="line">|</span>
+                <span class="count">21명 참여</span>
+                <button><span>평가하기</span></button>
+              </p>
+            </li>
+          </ul>
+          <ul class="Raddress" id="Raddress">
+            <li class="Rcul">주소</li>
+            <li class="Des">서울 종로구 통인동 137-7 1층</li>
+          </ul>
+          <ul class=Rtheme id="Rtheme">
+            <li class="Rcul">테마</li>
+            <li class="Des"  >
+              <span>술마시는 친구와 함께</span>,
+              <span>외국 현지 음식(for 외국인)</span>,
+              <span>일상데이트</<span>,
+              <span>특별한 날엔</span>,
+              <span>포장 가능</span>,
+              <span>대게/랍스터/킹크랩</span>,
+              <span>맥주</span>,
+              <span>크래프트비어</span>,
+              <span>몸보신</span>,
+              <span>서울 연등축제</span>
+            </li>
+          </ul>
+          <ul class="Rmap" id="Rmap">
+            <li class="Rcul">지도</li>
+            <li class="Des" ><img src="image_detail/map.jpg" alt="대체이미지"></li>
+          </ul>
+        </div><!-- //정보 -->
+      </div><!-- //section_basic -->
+
+      <!--상세정보시작 -->
+      <div class="detail" >
+              <br>
+              <h2>상세정보</h2>
+              <!-- <p>매장정보업데이트요청<p> -->
+              <form>
+                <table>
+              <tr>
+                <th>영업시간</th>
+                <td colspan="3">09:00~23:30</td>
+              </tr>
+              <tr>
+                <th>휴일</th>
+                <td colspan="3">연중무휴</td>
+              </tr>
+              <tr>
+                <th>좌석/룸/기타</th>
+                <td>72석/ 방:방없음</td>
+                <th>주류판매</th>
+                <td >판매</td>
+              </tr>
+              <tr>
+                <th>주차</th>
+                <td>주차가능</td>
+                <th>예약정보</th>
+                <td colspan="3">가능</td>
+              </tr>
+              <tr>
+                <th>배달포장</th>
+                <td>배달불가</td>
+                <th>기타시설</th>
+                <td>wifi</td>
+              </tr>
+              <tr>
+                <th>맛집소개</th>
+                <td id="menu" colspan="3">
+                    <br>
+                    특별한 날 데이트 하기 좋은 레스토랑 랍스타코를 소개한다.
+                    서촌의 핫플레이스로 떠오르고 있는 이곳은 합리적인 가격으로 랍스타를 제공하고 있다.
+                    분위기는 다소 자유롭지만, 최고급 레스토랑 못지 않은 맛으로 승부하고 있다.
+                    메인 메뉴인 랍스타를 주문할 경우, 고객에게 요리에 들어갈 랍스타를 살아있는 채로 선보이는 것이 특징이다.
+                    그만큼 재료에 대한 퀄리티와 신선함을 자부하고 있다
+                    <br><br>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div> <!--상세정보끝-->
+
+
+      <!--메뉴판시작-->
+      <div class="menupang" >
+        <div class="B_calulation">
+        <h2>메뉴판</h2>
+        <div class="tab">
+          <h5>분류</h5>
+          <button id="defaultOpen" class="tablinks active" onclick="openCity(event, 'menu1')" >Main Dish</button>
+          <button class="tablinks" onclick="openCity(event, 'menu2')">lunch</button>
+          <button class="tablinks" onclick="openCity(event, 'menu3')">dinner</button>
+        </div>
+      <div class="menu">
+        <!--메뉴 1시작 -->
+        <div id="menu1" class="tabcontent">
+            <table>
+              <colgroup>
+                <col style="width:50%">
+                <col style="width:20%">
+                <col style="width:30%">
+              </colgroup>
+              <tr>
+                <th>메뉴</th>
+                <th>가격</th>
+                <th>수량 / 선택</th>
+              </tr>
+              <tr>
+                <td colspan="3" class="Rclock">
+                <img src="image2/restaurant/onepage/ic_speaker.gif" alt="알림"> 9:00~8:00<td>
+              </tr>
+              <tr class="mainmenu">
+                <td>
+                  Steamed/Grilled Lobster and Clams
+                </td>
+                <td class="Rprice">140,000원</td>
+                <td class="count_num">
+                  <input type="number" value="1">|
+                  <input type="checkbox" value="1">
+                </td>
+              </tr>
+            </table>
+          <p class="ic_notice">
+            가격 정보는 업체의 사정에 의해 변동이 있을 수 있습니다
+          </p>
+        </div>
+        <!-- 메뉴1끝 -->
+
+        <div id="menu2" class="tabcontent">
+          <table>
+            <colgroup>
+              <col style="width:50%">
+              <col style="width:20%">
+              <col style="width:30%">
+            </colgroup>
+            <tr>
+              <th>메뉴</th>
+              <th>가격</th>
+              <th>수량 / 선택</th>
+            </tr>
+            <tr>
+              <td colspan="3" class="Rclock">
+              <img src="image2/restaurant/onepage/ic_speaker.gif" alt="알림"> 9:00~8:00<td>
+            </tr>
+            <tr class="mainmenu">
+              <td>
+                Sarnies on(치아바타 샌드위치)</td>
+              <td class="Rprice">14,000원</td>
+              <td class="count_num">
+                <input type="number" value="1">|
+                <input type="checkbox" value="1">
+              </td>
+            </tr>
+            <tr>
+              <td> Lobster Roll with Chips&Salad </td>
+              <td class="Rprice">19,000원</td>
+              <td class="count_num">
+                <input type="number" value="1">|
+                <input type="checkbox" value="1">
+              </td>
+            </tr>
+            <tr>
+              <td> Classic Cheese Burger with chip&salad </td>
+              <td class="Rprice">15,000원</td>
+              <td class="count_num">
+                <input type="number" value="1">|
+                <input type="checkbox" value="1">
+              </td>
+            </tr>
+          </table>
+          <p class="ic_notice">
+            가격 정보는 업체의 사정에 의해 변동이 있을 수 있습니다
+          </p>
+        </div> <!--메뉴2끝 -->
+
+        <div id="menu3" class="tabcontent">
+          <table>
+            <colgroup>
+              <col style="width:50%">
+              <col style="width:20%">
+              <col style="width:30%">
+            </colgroup>
+            <tr>
+              <th>메뉴</th>
+              <th>가격</th>
+              <th>수량 / 선택</th>
+            </tr>
+            <tr>
+              <td colspan="3" class="Rclock"><img src="image2/restaurant/onepage/ic_speaker.gif" alt="알림"> 9:00~8:00<td>
+            </tr>
+            <tr class="mainmenu">
+              <td>
+                Prawn Cocktail served with classic mayo</td>
+              <td class="Rprice">8000원</td>
+              <td class="count_num">
+                <input type="number" value="1">|
+                <input type="checkbox" value="1">
+              </td>
+            </tr>
+          </table><!--테이블 끝 -->
+              <p class="ic_notice">
+                가격 정보는 업체의 사정에 의해 변동이 있을 수 있습니다
+              </p>
+          </div> <!-- 메뉴 3번째 끝 -->
+        </div>  <!-- class menu 끝  -->
+      </div>
+    </div><!--메뉴판끝 -->
+
+    <!--예산짜기 시작 -->
+    <div class="calulation">
+
+    </div><!--예산짜기 끝  -->
+
+
+  <!-- 리뷰평가 시작 -->
+  <div class="Review" id="Review">
+    <h2>리뷰&평가 </h2>
+    <button type="submit"><span>평가하기</span></button>
+    <!-- 리뷰평가 ul 시작 -->
+    <div class="W_ul">
+      <ul>
+        <li>
+          <dl>
+            <dt>
+                <img class="img_profile" src="image_detail/dog_icon.png" alt=""><span class="nick">eony1010</span>
+            </dt>
+            <dd class="re_date">2018/05/31</dd>
+          </dl>
+          <p class="reply">개별로개별로개별로개별로개별로개별로개별로</p>
+          <div class="star">
+            <img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_off.png">
+            <p class="score">4.0</p>
+          </div><!-- ☆☆☆☆☆ //-->
+        </li>
+        <li>
+          <dl>
+            <dt>
+                <img class="img_profile" src="image_detail/dog_icon.png" alt=""><span class="nick">eony1010</span>
+            </dt>
+            <dd class="re_date">2018/05/31</dd>
+          </dl>
+          <p class="reply">개별로개별로개별로개별로개별로개별로개별로</p>
+          <div class="star">
+            <img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_off.png">
+            <p class="score">4.0</p>
+          </div><!-- ☆☆☆☆☆ //-->
+        </li>
+        <li>
+          <dl>
+            <dt>
+                <img class="img_profile" src="image_detail/dog_icon.png" alt=""><span class="nick">eony1010</span>
+            </dt>
+            <dd class="re_date">2018/05/31</dd>
+          </dl>
+          <p class="reply">개별로개별로개별로개별로개별로개별로개별로</p>
+          <div class="star">
+            <img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_on.png"><img src="image_detail/ic_star_off.png">
+            <p class="score">4.0</p>
+          </div><!-- ☆☆☆☆☆ //-->
+        </li>
+      </ul>
+    </div><!--리뷰평가 ul끝 -->
+
+        <div class="pagination">
+          <a href="#">&laquo;</a>
+          <a href="#">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">4</a>
+          <a href="#">5</a>
+          <a href="#">&raquo;</a>
+        </div>
+    </div>
+
+
+
+    <!--메뉴판끝-->
+  <button type="button" id="goTop">Top</button>
+  </body>
+</html>
