@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>영화</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+  <link rel="stylesheet" href="css/movie.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="js/movie.js"></script>
+  <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header>
+    <div class="navwarp">
+      <nav>
+        <h1 class="logo">LOGO</h1>
+        <ul>
+          <li><a href="main.html">영화홈</a></li>
+          <li><a href="movielist.html">영화목록</a></li>
+          <li><a href="reviewlist.html">리뷰</a></li>
+        </ul>
+      </nav>
+      <div class="top-nav">
+        <span class="gnb"><a href="#" data-toggle="modal" data-target="#login-modal">로그인</a></span>
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+        		<div class="loginmodal-container">
+        			<h1>로그인</h1><br>
+              <form class="form-signin">
+                <div class="form-group">
+                  <label for="inputid">아이디</label>
+                  <input type="text" id="inputid" class="form-control" placeholder="id" required autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="inputPwd">비밀번호</label>
+                  <input type="password" id="inputPwd" class="form-control" placeholder="Password" required>
+                </div>
+                <div id="remember" class="checkbox">
+                  <label><input type="checkbox" value="remember-me"> Remember me</label>
+                </div>
+                <button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
+
+              </form><!-- /form -->
+        			<div class="login-help">
+        				<a href="#">회원가입</a> - <a href="#">비밀번호 찾기</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
+      <div class="search">
+        <div class="srch_field_on _view">
+					<span class="ipt_srch">
+						<label for="ipt_tx_srch" id="search_placeholder" style="display: inline;">영화검색</label>
+						<input type="text" id="ipt_tx_srch" class="ipt_tx_srch" name="query" maxlength="100" accesskey="s" style="ime-mode:active;" autocomplete="off">
+						<span class="align"></span>
+					</span>
+					<button type="submit" title="검색" class="btn_srch" onclick="clickcr(this,'GNB.search','','',event); delayed_submit(this);"><span class="blind">검색</span></button>
+				</div>
+      </div>
+    </div>
+    </div>
+
+
+  </header>
+  <section>
+    <div class="content-wrap">
+      <article id="reviewdetail">
+        <div class="old_layout old_community">
+          <!-- Content Body -->
+          <div id="cbody" class="type_1">
+            <div id="old_content">
+              <!-- view -->
+              <div class="read_type_1">
+                <h4 class="title_line">
+                  개쓰레기임
+                  <div class="pt_3"></div>
+                  <div class="fl point_type_1"><div class="mask" style="width:10.0%"><img src="https://ssl.pstatic.net/imgmovie/2007/img/common/point_type_1_bg_on.gif" width="59" height="11" alt="1점"></div></div><span class="txt_star"></span>
+                </h4>
+                <form id="reportForm" name="reportForm1"></form>
+                <div class="autor_time">
+                  <span class="log">kfjn****님
+                    <a href="list.nhn?st=nickname&amp;sword=4621554">모든리뷰보기</a>
+                  </span>
+                  <span id="readcnt2" style="display:none;"></span>
+                  <span class="time"><span class="date">18.04.19</span>&nbsp;&nbsp;23:40</span>
+                </div>
+                <div class="text_area">
+                  <p>관련영화 : <a href="">지오스톰</a></p>
+                  영화 미드 보는거 정말 좋아해서 별별 영화 미드를 다 봣는데,&nbsp;
+                  정말 보면서 시간아깝고 인생낭비한 것 같은 기분이 드는건 이 영화가 처음이엇다..
+                  재난영화 좀비영화를 워낙 좋아해서 개봉하는 날 극장가서 봣는데 너무 재미없고 논리없고 내용전개 애미 없고 어이가 없어서 짜증났던 개쓰레기 영화ㅠㅠ
+                  인생낭비임..영화 미드 보는거 정말 좋아해서 별별 영화 미드를 다 봣는데,&nbsp;
+                  정말 보면서 시간아깝고 인생낭비한 것 같은 기분이 드는건 이 영화가 처음이엇다..
+                  재난영화 좀비영화를 워낙 좋아해서 개봉하는 날 극장가서 봣는데 너무 재미없고 논리없고 내용전개 애미 없고 어이가 없어서 짜증났던 개쓰레기 영화ㅠㅠ
+                  인생낭비임..
+                </div>
+                <!-- 덧글 -->
+                <div id="cbox_module" class="u_cbox">
+                  <div class="u_cbox_wrap u_cbox_ko">
+                    <div class="u_cbox_head">
+                      <h5 class="u_cbox_title">댓글</h5>
+                      <span class="u_cbox_count">1</span>
+                      <!-- <button type="button" class="u_cbox_btn_refresh" data-action="count#refresh" data-log="RPO.refresh">
+                        <span class="u_cbox_ico_refresh"></span>
+                        <span class="u_cbox_txt_refresh">새로고침</span>
+                      </button> -->
+                      <div class="u_cbox_head_tools"></div>
+                    </div>
+                    <div class="u_cbox_write_wrap">
+                      <div class="u_cbox_write_box u_cbox_type_logged_out">
+                        <form>
+                          <fieldset>
+                            <legend class="u_vc">댓글 쓰기</legend>
+                            <div class="u_cbox_write">
+                              <div class="u_cbox_write_inner">
+                                <div class="u_cbox_write_area">
+                                  <strong class="u_vc">댓글 입력</strong>
+                                  <div class="u_cbox_inbox">
+                                    <textarea id="cbox_module__write_textarea" class="u_cbox_text" rows="3" cols="30"></textarea>
+                                    <label for="cbox_module__write_textarea" class="u_cbox_guide" data-action="write#placeholder" data-param="@event">주제와 무관한 댓글, 악플은 삭제될 수 있습니다.</label>
+                                  </div>
+                                </div>
+                                <div class="u_cbox_upload_image" style="display:none">
+                                  <span class="u_cbox_upload_image_wrap fileButton browsebutton _cboxImageSelect">
+                                    <span class="u-cbox-browse-box">
+                                      <input class="u-cbox-browse-file-input" type="file" name="browse" accept="image/*" title="이미지 추가">
+                                    </span>
+                                    <a href="#" class="u_cbox_upload_thumb_link u-cbox-browse-button" data-log="RPP.add">
+                                      <span class="u_cbox_upload_thumb_add">이미지 추가</span>
+                                      <span class="u_cbox_upload_thumb_mask"></span>
+                                    </a>
+                                  </span>
+                                </div>
+                                <div class="u_cbox_upload_sticker" style="display:none"></div>
+                                <div class="u_cbox_write_count">
+                                  <span class="u_vc">현재 입력한 글자수</span>
+                                  <strong class="u_cbox_count_num">0</strong>/<span class="u_vc">현재 입력한 글자수</span><span class="u_cbox_write_total">500</span>
+                                </div>
+                                <div class="u_cbox_upload">
+                                  <div class="u_cbox_addition"></div>
+                                  <button type="button" class="u_cbox_btn_upload" data-action="write#request" data-log="RPC.write#RPC.reply">
+                                    <span class="u_cbox_ico_upload"></span>
+                                    <span class="u_cbox_txt_upload">등록</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </form>
+                      </div>
+                    </div>
+                  <div class="u_cbox_notice u_cbox_notice_none" style="display: none;"></div>
+                  <div class="u_cbox_content_wrap">
+                    <ul class="u_cbox_list">
+                      <li class="u_cbox_comment cbox_module__comment_5268239 _user_id_no_525cy" data-info="commentNo:5268239,deleted:false,best:false,visible:true,secret:false,manager:false,mine:false,report:undefined,blindReport:false,objectId:'review-4621481',replyLevel:1,parentCommentNo:5268239">
+                        <div class="u_cbox_comment_box">
+                          <div class="u_cbox_area">
+                            <div class="u_cbox_info">
+                              <span class="u_cbox_info_main">
+                                <span class="u_cbox_name">
+                                  <span class="u_cbox_name_area">
+                                    <span class="u_cbox_nick_area">
+                                      <span class="u_cbox_nick">Lizzy</span>
+                                    </span>
+                                  </span>
+                                </span>
+                              </span>
+                              <span class="u_cbox_info_sub"></span>
+                            </div>
+                            <div class="u_cbox_text_wrap">
+                              <span class="u_cbox_contents" data-lang="ko">일베충색기들 다꺼졌으면</span>
+                            </div>
+                            <div class="u_cbox_info_base">
+                              <span class="u_cbox_date" data-value="2018-04-19T19:33:33+0900">5시간 전</span>
+                              <span class="u_cbox_work_main">
+                                <a href="#" class="u_cbox_btn_report" data-action="report#request" data-param="commentNo:5268239,objectId:'review-4621481'" data-log="RPC.report">
+                                  <span class="u_cbox_ico_bar"></span>
+                                  <span class="u_cbox_ico_report"></span>
+                                  <span class="u_cbox_in_report">신고</span>
+                                </a>
+                              </span>
+                            </div>
+                            <span class="u_cbox_comment_frame">
+                              <span class="u_cbox_ico_tip"></span>
+                              <span class="u_cbox_comment_frame_top">
+                                <span class="u_cbox_comment_bg_r"></span>
+                                <span class="u_cbox_comment_bg_l"></span>
+                              </span>
+                              <span class="u_cbox_comment_frame_bottom">
+                                <span class="u_cbox_comment_bg_r"></span>
+                                <span class="u_cbox_comment_bg_l"></span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="u_cbox_reply_area" style="display:none;"></div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="u_cbox_paginate" style="">
+                    <div class="u_cbox_page_wrap">
+                      <span class="u_cbox_pre u_cbox_pre_end" title="첫 페이지 목록으로 이동하기">
+                        <span class="u_cbox_ico_page"></span>
+                        <span class="u_cbox_cnt_page">맨앞</span>
+                        <span class="u_vc">페이지 목록으로 이동하기</span>
+                      </span>
+                      <span class="u_cbox_pre" title="이전 페이지 목록으로 이동하기">
+                        <span class="u_cbox_ico_page"></span>
+                        <span class="u_cbox_cnt_page">이전</span>
+                        <span class="u_vc">페이지 목록으로 이동하기</span>
+                      </span>
+                      <strong class="u_cbox_page">
+                        <span class="u_cbox_num_page">1</span>
+                        <span class="u_vc">현재 선택된 페이지</span>
+                      </strong>
+                      <span class="u_cbox_next" title="다음 페이지 목록으로 이동하기">
+                        <span class="u_cbox_cnt_page">다음</span>
+                        <span class="u_cbox_ico_page"></span>
+                        <span class="u_vc">페이지 목록으로 이동하기</span>
+                      </span>
+                      <span class="u_cbox_next u_cbox_next_end" title="마지막 페이지 목록으로 이동하기">
+                        <span class="u_cbox_cnt_page">맨뒤</span>
+                        <span class="u_cbox_ico_page"></span>
+                        <span class="u_vc">페이지 목록으로 이동하기</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="cbox_module" class="u_cbox">
+                <div class="u_cbox_wrap u_cbox_ko">
+                  <div class="u_cbox_head">
+                    <h5 class="u_cbox_title">댓글</h5>
+                    <span class="u_cbox_count"></span>
+                    <div class="u_cbox_head_tools"></div>
+                  </div>
+                  <div class="u_cbox_write_wrap">
+                    <div class="u_cbox_write_box u_cbox_type_logged_out">
+                      <form><fieldset><legend class="u_vc">댓글 쓰기</legend>
+                        <div class="u_cbox_write">
+                          <div class="u_cbox_write_inner">
+                            <div class="u_cbox_write_area">
+                              <strong class="u_vc">댓글 입력</strong>
+                              <div class="u_cbox_inbox">
+                                <textarea id="cbox_module__write_textarea" class="u_cbox_text" rows="3" cols="30"></textarea>
+                                <label for="cbox_module__write_textarea" class="u_cbox_guide" data-action="write#placeholder" data-param="@event">주제와 무관한 댓글, 악플은 삭제될 수 있습니다.</label>
+                              </div>
+                            </div>
+                            <div class="u_cbox_upload_image" style="display:none">
+                              <span class="u_cbox_upload_image_wrap fileButton browsebutton _cboxImageSelect">
+                                <span class="u-cbox-browse-box">
+                                  <input class="u-cbox-browse-file-input" type="file" name="browse" accept="image/*" title="이미지 추가"></span>
+                                  <a href="#" class="u_cbox_upload_thumb_link u-cbox-browse-button" data-log="RPP.add">
+                                    <span class="u_cbox_upload_thumb_add">이미지 추가</span>
+                                    <span class="u_cbox_upload_thumb_mask"></span>
+                                  </a>
+                                </span>
+                              </div>
+                              <div class="u_cbox_upload_sticker" style="display:none"></div>
+                              <div class="u_cbox_write_count">
+                                <span class="u_vc">현재 입력한 글자수</span>
+                                <strong class="u_cbox_count_num">0</strong>/<span class="u_vc">현재 입력한 글자수</span><span class="u_cbox_write_total">500</span>
+                              </div>
+                              <div class="u_cbox_upload">
+                                <div class="u_cbox_addition"></div>
+                                <button type="button" class="u_cbox_btn_upload" data-action="write#request" data-log="RPC.write#RPC.reply">
+                                  <span class="u_cbox_ico_upload"></span>
+                                  <span class="u_cbox_txt_upload">등록</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </fieldset></form>
+                      </div>
+                    </div>
+                    <div class="u_cbox_notice u_cbox_notice_none" style="display: none;"></div>
+                    <div class="u_cbox_content_wrap">
+                      <div class="u_cbox_comment_none">
+                        <div class="u_cbox_con_inform">
+                          <span class="u_cbox_ico_comment_none"></span>
+                          <span class="u_cbox_contents_none">등록된 댓글이 없습니다.</span>
+                        </div>
+                      </div>
+                      <ul class="u_cbox_list" style="display: none;"></ul>
+                    </div>
+                    <div class="u_cbox_paginate" style="display: none;">
+                      <div class="u_cbox_page_wrap">
+                        <span class="u_cbox_pre u_cbox_pre_end" title="첫 페이지 목록으로 이동하기">
+                          <span class="u_cbox_ico_page"></span>
+                          <span class="u_cbox_cnt_page">맨앞</span>
+                          <span class="u_vc">페이지 목록으로 이동하기</span>
+                        </span>
+                        <span class="u_cbox_pre" title="이전 페이지 목록으로 이동하기">
+                          <span class="u_cbox_ico_page"></span>
+                          <span class="u_cbox_cnt_page">이전</span>
+                          <span class="u_vc">페이지 목록으로 이동하기</span>
+                        </span>
+                        <strong class="u_cbox_page">
+                          <span class="u_cbox_num_page">1</span>
+                          <span class="u_vc">현재 선택된 페이지</span>
+                        </strong>
+                        <span class="u_cbox_next" title="다음 페이지 목록으로 이동하기">
+                          <span class="u_cbox_cnt_page">다음</span>
+                          <span class="u_cbox_ico_page"></span>
+                          <span class="u_vc">페이지 목록으로 이동하기</span>
+                        </span>
+                        <span class="u_cbox_next u_cbox_next_end" title="마지막 페이지 목록으로 이동하기">
+                          <span class="u_cbox_cnt_page">맨뒤</span>
+                          <span class="u_cbox_ico_page"></span>
+                          <span class="u_vc">페이지 목록으로 이동하기</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- //덧글 -->
+              </div>
+              <!-- //view -->
+              <div class="btn_group pt_8 pb_35">
+                <span class="fl">
+                  <a href="">
+                    <img src="images/btn_list.gif" alt="목록" width="39" height="23">
+                  </a>
+                </span>
+              </div>
+
+<script type="text/javascript" src="/common/js/jindo2.js"></script>
+<script type="text/javascript" src="/common/js/jindo2.component.js"></script>
+
+
+<script type="text/javascript">
+var isLogin = '' ? true : false;
+var ticketId = 'mov4';
+var objectId = 'review-4621554';
+
+//공통댓글 2.0
+
+if (document.addEventListener) {
+	document.addEventListener("DOMContentLoaded", function () {
+		document.removeEventListener("DOMContentLoaded", arguments.callee, false);
+
+		loadCommentJS();
+
+		resizeContentsImage();
+	}, false);
+}
+// Internet Explorer
+else if (document.attachEvent) {
+	// onreadystatechange 는 모든 브라우저가 반환
+	document.attachEvent("onreadystatechange", function () {
+		if (document.readyState == "complete" || document.readyState == 'loaded') {
+			document.detachEvent("onreadystatechange", arguments.callee);
+
+			loadCommentJS();
+
+			resizeContentsImage();
+		}
+	});
+}
+
+function loadCommentJS() {
+	(function(htOption) {
+	    window.__htCboxOption = htOption;
+	    var s = document.createElement('script');
+	    s.type = 'text/javascript';
+	    s.charset = 'utf-8';
+	    s.src = htOption.sDomain + '/js/cbox.core.js?v=' + Math.floor(new Date().getTime() / 1200000);
+	    (document.head || document.getElementsByTagName('head')[0]).appendChild(s);
+	})({
+	    sDomain : 'https://ssl.pstatic.net/static.cbox',
+	    sApiDomain : 'https://apis.naver.com/commentBox/cbox',
+	    bLogin : isLogin,
+	    sTicket : ticketId,
+	    sTemplateId : 'default',
+	    sObjectId : objectId,
+	    sLanguage : 'ko',
+	    sCssId : 'movie',
+	    sCharset : 'euc-kr'
+	});
+}
+
+function resizeContentsImage() {
+//$Fn(function(){
+
+	// 컨텐츠 영역의 이미지를 일괄 리사이즈하는 script.
+	$A($Element($$.getSingle('.text_area')).queryAll('img')).forEach(function(v,i,a){//value, index, array
+		var maxWidth = $Element($$.getSingle('.text_area')).width();
+		var imgElmt = $Element(v);
+		if(imgElmt.width() > maxWidth) {
+			var factor = (maxWidth / imgElmt.width());
+			imgElmt.width(imgElmt.width() * factor).height(imgElmt.height() * factor);
+		}
+	});
+//}).attach(window, 'load');
+}
+
+</script>
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+<script>
+function showBlogLayer(id)
+{
+	document.getElementById("PLEASE_INSERT_UNIQUE_ID").style.display="none";
+	document.getElementById("PLEASE_INSERT_UNIQUE_ID2").style.display="none";
+	document.getElementById(id).style.display="block";
+}
+</script>
+
+
+
+				</div>
+      </article>
+    </div>
+  </section>
+  <footer>
+    NAVER Copyright © NAVER Corp. All Rights Reserved.
+  </footer>
+</body>
+</html>

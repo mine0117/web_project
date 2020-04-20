@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>영화</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+  <link rel="stylesheet" href="css/movie.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <script src="js/movie.js"></script>
+  <script src="js/deploy/movie.all.js"></script>
+
+  <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header>
+    <div class="navwarp">
+      <nav>
+        <h1 class="logo">LOGO</h1>
+        <ul>
+          <li><a href="main.html">영화홈</a></li>
+          <li><a href="movielist.html">영화목록</a></li>
+          <li><a href="reviewlist.html">리뷰</a></li>
+        </ul>
+      </nav>
+      <div class="top-nav">
+        <span class="gnb"><a href="#" data-toggle="modal" data-target="#login-modal">로그인</a></span>
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+        		<div class="loginmodal-container">
+        			<h1>로그인</h1><br>
+              <form class="form-signin">
+                <div class="form-group">
+                  <label for="inputid">아이디</label>
+                  <input type="text" id="inputid" class="form-control" placeholder="id" required autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="inputPwd">비밀번호</label>
+                  <input type="password" id="inputPwd" class="form-control" placeholder="Password" required>
+                </div>
+                <div id="remember" class="checkbox">
+                  <label><input type="checkbox" value="remember-me"> Remember me</label>
+                </div>
+                <button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
+
+              </form><!-- /form -->
+        			<div class="login-help">
+        				<a href="#">회원가입</a> - <a href="#">비밀번호 찾기</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
+      <div class="search">
+        <div class="srch_field_on _view">
+					<span class="ipt_srch">
+						<label for="ipt_tx_srch" id="search_placeholder" style="display: inline;">영화검색</label>
+						<input type="text" id="ipt_tx_srch" class="ipt_tx_srch" name="query" maxlength="100" accesskey="s" style="ime-mode:active;" autocomplete="off">
+						<span class="align"></span>
+					</span>
+					<button type="submit" title="검색" class="btn_srch" onclick="clickcr(this,'GNB.search','','',event); delayed_submit(this);"><span class="blind">검색</span></button>
+				</div>
+      </div>
+    </div>
+    </div>
+
+
+  </header>
+  <section>
+    <div class="content-wrap">
+      <!-- 리뷰작성폼 -->
+      <article id="reviewform">
+        <div class="obj_section noline center_obj">
+        			<div class="review">
+        				<div class="title_area">
+        					<h4 class="h_review_wrt"><strong class="blind">리뷰쓰기</strong></h4>
+        					<a href="" class="review_list"><em>목록보기</em></a><!-- N=a:rwr.list -->
+        				</div>
+        				<fieldset class="ipt_table" id="reviewFieldset">
+        					<legend><span class="blind">리뷰입력 폼</span></legend>
+        					<table summary="리뷰쓰기 테이블" class="wrt_board">
+        					  <tbody>
+            					<tr>
+              					<th scope="row" class="frst_tr"><span class="subject1">영화</span></th>
+              					<td class="frst_tr"> <strong class="title">어벤져스</strong></td>
+            					</tr>
+            					<tr>
+              					<th scope="row"><span class="subject2"><label for="inputTitle" class="subject2">제목</label></span></th>
+              					<td>
+                          <input type="text" class="form-control tx_field" placeholder="제목을 입력하세요" name="inputTitle" id="inputTitle">
+                        </td>
+                      </tr>
+            					<tr>
+              					<th scope="row" class="tr_star"><span class="subject3">별점</span></th>
+                        <td class="tr_star">
+                          <select class="form-control input_star" style="width:200px">
+                            <option value="1">1 | ☆</option>
+                            <option value="2">2 | ★</option>
+                            <option value="3">3 | ★☆</option>
+                            <option value="4">4 | ★★</option>
+                            <option value="5">5 | ★★☆</option>
+                            <option value="6">6 | ★★★</option>
+                            <option value="7">7 | ★★★☆</option>
+                            <option value="8">8 | ★★★★</option>
+                            <option value="9">9 | ★★★★☆</option>
+                            <option value="10">10 | ★★★★★</option>
+                          </select>
+        					      </td>
+        					    </tr>
+                      <tr>
+                        <th scope="row" class="tr_star"><span class="subject5">내용</span></th>
+                        <td class="tr_star">
+                          <div class="editor_area">
+                            <textarea class="form-control" rows="20" placeholder="리뷰를 입력하세요"></textarea>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="wrt_board_submit">
+        						<a href="#" title="확인" class="btn_confrm"><em class="blind">확인</em></a><!-- N=a:rwr.confirm -->
+                    <a href="#" title="취소" class="btn_cncl"><em class="blind">취소</em></a><!-- N=a:rwr.cancel -->
+                  </div>
+        				</fieldset>
+
+        			</div>
+        		</div>
+
+      </article>
+    </div>
+  </section>
+  <footer>
+    NAVER Copyright © NAVER Corp. All Rights Reserved.
+  </footer>
+</body>
+</html>

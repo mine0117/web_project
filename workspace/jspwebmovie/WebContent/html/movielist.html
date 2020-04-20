@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>영화리스트</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+  <link rel="stylesheet" href="css/movie.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="js/movie.js"></script>
+  <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header>
+    <div class="navwarp">
+      <nav>
+        <h1 class="logo">LOGO</h1>
+        <ul>
+          <li><a href="main.html">영화홈</a></li>
+          <li><a href="movielist.html">영화목록</a></li>
+          <li><a href="reviewlist.html">리뷰</a></li>
+        </ul>
+      </nav>
+      <div class="top-nav">
+        <span class="gnb"><a href="#" data-toggle="modal" data-target="#login-modal">로그인</a></span>
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+        		<div class="loginmodal-container">
+        			<h1>로그인</h1><br>
+              <form class="form-signin">
+                <div class="form-group">
+                  <label for="inputid">아이디</label>
+                  <input type="text" id="inputid" class="form-control" placeholder="id" required autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="inputPwd">비밀번호</label>
+                  <input type="password" id="inputPwd" class="form-control" placeholder="Password" required>
+                </div>
+                <div id="remember" class="checkbox">
+                  <label><input type="checkbox" value="remember-me"> Remember me</label>
+                </div>
+                <button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
+
+              </form><!-- /form -->
+        			<div class="login-help">
+        				<a href="#">회원가입</a> - <a href="#">비밀번호 찾기</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
+      <div class="search">
+        <div class="srch_field_on _view">
+					<span class="ipt_srch">
+						<label for="ipt_tx_srch" id="search_placeholder" style="display: inline;">영화검색</label>
+						<input type="text" id="ipt_tx_srch" class="ipt_tx_srch" name="query" maxlength="100" accesskey="s" style="ime-mode:active;" autocomplete="off">
+						<span class="align"></span>
+					</span>
+					<button type="submit" title="검색" class="btn_srch" onclick="clickcr(this,'GNB.search','','',event); delayed_submit(this);"><span class="blind">검색</span></button>
+				</div>
+      </div>
+    </div>
+    </div>
+
+
+  </header>
+  <section>
+    <div class="content-wrap">
+      <article id="list">
+        <div class="obj_section">
+          <h3 class="tit_t1"><img src="images/tit_movie1.png" width="120" height="24" alt="현재 상영영화"></h3>
+          <div class="tab_t1">
+          	<ul class="tab_s1">
+          		<!-- <li class="on"><a href="" class="item1">상영영화</a></li>
+          		<li><a href="./current.nhn?view=list&tab=singleTheater&order=open" class="item2">단관개봉</a></li> -->
+          	</ul>
+          	<ul class="sorting_t1">
+          		<li class="on"><a href="" class="item1" title="개봉순 정렬">개봉순</a><!-- N=a:now.day --></li>
+          		<li><a href="" class="item3" title="평점순 정렬">평점순</a><!-- N=a:now.star --></li>
+          	</ul>
+          </div>
+          <div class="lst_wrap">
+          	<ul class="lst_detail_t1">
+          		<li>
+          			<div class="thumb">
+                	<a href=""><img src="images/poster/20.jpg" width="99" heigth="141" alt="램페이지" onerror="this.src='images/dft_img99x141.png'"></a>
+                </div>
+          			<dl class="lst_dsc">
+          				<dt class="tit">
+                    <span class="ico_rating_12">12세 관람가</span>
+                    <a href="moviedetail.html">램페이지</a>
+          						<!-- N=a:nol.title,r:1,i:162249 -->
+          				</dt>
+                	<dd class="star">
+                    <dl class="info_star">
+          						<dt class="tit_t1">네티즌</dt>
+          						<dd>
+          							<div class="star_t1">
+          								<a href=""><span class="st_off"><span class="st_on" style="width:85.9%"></span></span><span class="num">8.59</span><span class="num2">참여 <em>2,807</em> 명</span></a><!-- N=a:nol.urating -->
+          							</div>
+                      	<span class="split">|</span>
+                      </dd>
+                    </dl>
+          				</dd>
+          				<dd>
+          					<dl class="info_txt1">
+          						<dt class="tit_t1">개요</dt>
+          						<dd>
+          							<span class="link_txt">장르</span>
+          							<span class="split">|</span>
+          								107분
+                        <span class="split">|</span>
+          								2018.04.12 개봉
+          						</dd>
+          						<dt class="tit_t2">감독</dt>
+          						<dd>
+          							<span class="link_txt">
+          								브래드 페이튼
+          							</span>
+          						</dd>
+          						<dt class="tit_t3">출연</dt>
+          						<dd>
+          							<span class="link_txt">
+          								드웨인 존슨,제프리 딘 모건.나오미 해리스.말린 애커맨
+          							</span>
+          						</dd>
+          					</dl>
+          				</dd>
+                  <dd class="info_t1">
+						        <div class="btn_area">
+                      <span class="btn_t1">
+                        <a href="reviewform.html" class="item6">리뷰쓰6</a>
+								      </span>
+							      </div>
+        					</dd>
+          			</dl>
+
+          		</li>
+
+            </ul>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </section>
+  <footer>
+    NAVER Copyright © NAVER Corp. All Rights Reserved.
+  </footer>
+</body>
+</html>

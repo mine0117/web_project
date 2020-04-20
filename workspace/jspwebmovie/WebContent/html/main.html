@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>영화</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+  <link rel="stylesheet" href="css/movie.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="js/movie.js"></script>
+  <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header>
+    <div class="navwarp">
+      <nav>
+        <h1 class="logo">LOGO</h1>
+        <ul>
+          <li><a href="main.html">영화홈</a></li>
+          <li><a href="movielist.html">영화목록</a></li>
+          <li><a href="reviewlist.html">리뷰</a></li>
+        </ul>
+      </nav>
+      <div class="top-nav">
+        <span class="gnb"><a href="#" data-toggle="modal" data-target="#login-modal">로그인</a></span>
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+        		<div class="loginmodal-container">
+        			<h1>로그인</h1><br>
+              <form class="form-signin">
+                <div class="form-group">
+                  <label for="inputid">아이디</label>
+                  <input type="text" id="inputid" class="form-control" placeholder="id" required autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="inputPwd">비밀번호</label>
+                  <input type="password" id="inputPwd" class="form-control" placeholder="Password" required>
+                </div>
+                <div id="remember" class="checkbox">
+                  <label><input type="checkbox" value="remember-me"> Remember me</label>
+                </div>
+                <button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
+
+              </form><!-- /form -->
+        			<div class="login-help">
+        				<a href="joinform.html">회원가입</a> - <a href="#">비밀번호 찾기</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
+      <div class="search">
+        <div class="srch_field_on _view">
+					<span class="ipt_srch">
+						<label for="ipt_tx_srch" id="search_placeholder">영화검색</label>
+						<input type="text" id="ipt_tx_srch" class="ipt_tx_srch" name="query" >
+						<span class="align"></span>
+					</span>
+					<button type="submit" title="검색" class="btn_srch"><span class="blind">검색</span></button>
+				</div>
+      </div>
+    </div>
+    </div>
+
+  </header>
+  <section>
+      <div class="content-wrap">
+        <!-- 무비차트 -->
+        <article id="movie">
+          <div class="slide">
+            <div class="mv_main">
+              <div class="flick_view_area flick-view">
+                <div class="flick-container">
+                  <ul class="flick-ct home_list">
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                    <li class="item1">
+                      <div class="obj_off">
+                        <a href="#">
+                          <span class="ico_rating_12">12세 관람가</span>
+                          <span class="mask"></span>
+                          <img src="images/movie_image (28).jpg" alt="어벤져스" width="125" height="179" onerror="this.src='/images/dft_img125x179.png'">
+                          <span class="baseplate r">
+                            <span class="rank_star l"><span class="star_off"><em>별점 - 총 10점 중</em></span><span class="star_on" style="width:86.1%"><em>8.61 점</em></span></span>
+                            <strong class="l"><span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num1"><em>1</em></span></strong>
+                          </span>
+                        </a><!-- N=a:run.da,r:1,i:162249 -->
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <button class="prev">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+              <span class="skip">이전</span>
+            </button>
+            <button class="next">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+              <span class="skip">다음</span>
+            </button>
+          </div>
+        </article>
+
+        <script>
+
+        slidetimer();
+        // var current=0;
+        var $interval;
+        function slidetimer(){
+          var $interval=setInterval(function(){slide()},3000);               }
+        function slide(){
+          $("#movie ul").animate({left:"-=100px"},500,function(){
+            $(this).css({"left":0});
+            $("#movie ul").append( $("#movie ul").children("li").eq(0) );
+          });
+         // current++;
+         // if(current==5)current=0;
+        }
+        function slideprev(){
+          $(document).on("click",".prev",function(){
+            // $("ul").animate({left:"-=100px"});
+            //$(this).css({"left":0});
+            //$("li").appendTo("ul");
+            //$("li").append( $("ul").children("li").eq(0) );
+            $( $("#movie ul").children("li").eq(0) ).appendTo("ul")
+            //$("ul").append( $("ul").children("li").eq(0) );
+            //current++;
+            //if(current==5)current=0;
+          });
+        }
+        slideprev();
+
+        $(document).on("click",".prev",function(){
+          // $("ul").animate({left:"-=100px"});
+          //$(this).css({"left":0});
+          //$("li").appendTo("ul");
+          //$("li").append( $("ul").children("li").eq(0) );
+          //$( $("ul").children("li").eq(5) ).prependTo("ul")
+          //$("ul").append( $("ul").children("li").eq(0) );
+          //current++;
+          //if(current==5)current=0;
+        });
+
+        </script>
+
+
+
+
+
+        <!-- 리뷰 -->
+        <article id="board-wrap">
+            <div class="obj_section">
+      				<div class="main_review">
+                <div class="title_area">
+                	<h4 class="hh_review"><strong class="blind">평점/리뷰</strong></h4>
+              	</div>
+      					<div class="hh_review_area">
+      						<div id="movieReview" class="hh_review_ct">
+      							<ul class="lst_con first" data-index="0" style="display:block">
+      							<!-- [D] 선택된 경우 li에 class="on" 추가 -->
+        							<li id="review1" data-index="0" class="_select_title">
+        								<a href="#" class="thmb"><img src="images/movie_image (28).jpg" width="64" height="91" alt="어벤져스"></a>
+          							<div class="detail">
+          								<a href="#" data-index="0" class="_select_title_anchor"><strong>어벤져스</strong>
+          									<div class="star_score">
+      												<span class="st_off"><span class="st_on" style="width:86.0%">평점 - 총 10점 중</span></span>
+      												<span class="score">
+        												<span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num0"><em>0</em></span>
+          										</span>
+          									</div>
+          								</a>
+          								<ul class="info">
+      											<li><a href="/movie/bi/mi/reviewread.nhn?nid=4619520&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4619520', '1', event);"><span class="tit">[램페이지] - '더 락'이 '더 락'하는 영화</span></a></li>
+      											<li><a href="/movie/bi/mi/reviewread.nhn?nid=4620886&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4620886', '2', event);"><span class="tit">아주 솔직하고 개인적인 영화램페이지후기 - 램페이지 조지가 열일하다</span></a></li>
+      											<li class="last"><a href="/movie/bi/mi/reviewread.nhn?nid=4620674&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4620674', '3', event);"><span class="tit">램페이지 [Rampage] (2018)</span></a></li>
+          								</ul>
+          							</div>
+          						</li>
+                      <li id="review1" data-index="0" class="_select_title">
+                        <a href="/movie/bi/mi/basic.nhn?code=162249" class="thmb" onclick="clickcr(this, 'tvw.img', '162249', '1', event);"><img src="https://movie-phinf.pstatic.net/20180329_128/1522290942423A9Otf_JPEG/movie_image.jpg?type=f64_91" width="64" height="91" alt="램페이지" onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img64x91.png'"></a>
+                        <div class="detail">
+                          <a href="/movie/bi/mi/basic.nhn?code=162249" onclick="clickcr(this, 'tvw.title', '162249', '1', event);" data-index="0" class="_select_title_anchor"><strong>램페이지</strong>
+                            <div class="star_score">
+                              <span class="st_off"><span class="st_on" style="width:86.0%">평점 - 총 10점 중</span></span>
+                              <span class="score">
+                                <span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num0"><em>0</em></span>
+                              </span>
+                            </div>
+                          </a>
+                          <ul class="info">
+                            <li><a href="/movie/bi/mi/reviewread.nhn?nid=4619520&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4619520', '1', event);"><span class="tit">[램페이지] - '더 락'이 '더 락'하는 영화</span></a></li>
+                            <li><a href="/movie/bi/mi/reviewread.nhn?nid=4620886&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4620886', '2', event);"><span class="tit">아주 솔직하고 개인적인 영화램페이지후기 - 램페이지 조지가 열일하다</span></a></li>
+                            <li class="last"><a href="/movie/bi/mi/reviewread.nhn?nid=4620674&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4620674', '3', event);"><span class="tit">램페이지 [Rampage] (2018)</span></a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li id="review1" data-index="0" class="_select_title">
+                        <a href="/movie/bi/mi/basic.nhn?code=162249" class="thmb" onclick="clickcr(this, 'tvw.img', '162249', '1', event);"><img src="https://movie-phinf.pstatic.net/20180329_128/1522290942423A9Otf_JPEG/movie_image.jpg?type=f64_91" width="64" height="91" alt="램페이지" onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img64x91.png'"></a>
+                        <div class="detail">
+                          <a href="/movie/bi/mi/basic.nhn?code=162249" onclick="clickcr(this, 'tvw.title', '162249', '1', event);" data-index="0" class="_select_title_anchor"><strong>램페이지</strong>
+                            <div class="star_score">
+                              <span class="st_off"><span class="st_on" style="width:86.0%">평점 - 총 10점 중</span></span>
+                              <span class="score">
+                                <span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num0"><em>0</em></span>
+                              </span>
+                            </div>
+                          </a>
+                          <ul class="info">
+                            <li><a href="/movie/bi/mi/reviewread.nhn?nid=4619520&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4619520', '1', event);"><span class="tit">[램페이지] - '더 락'이 '더 락'하는 영화</span></a></li>
+                            <li><a href="/movie/bi/mi/reviewread.nhn?nid=4620886&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4620886', '2', event);"><span class="tit">아주 솔직하고 개인적인 영화램페이지후기 - 램페이지 조지가 열일하다</span></a></li>
+                            <li class="last"><a href="/movie/bi/mi/reviewread.nhn?nid=4620674&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4620674', '3', event);"><span class="tit">램페이지 [Rampage] (2018)</span></a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li id="review1" data-index="0" class="_select_title">
+                        <a href="/movie/bi/mi/basic.nhn?code=162249" class="thmb" onclick="clickcr(this, 'tvw.img', '162249', '1', event);"><img src="https://movie-phinf.pstatic.net/20180329_128/1522290942423A9Otf_JPEG/movie_image.jpg?type=f64_91" width="64" height="91" alt="램페이지" onerror="this.src='https://ssl.pstatic.net/static/movie/2012/06/dft_img64x91.png'"></a>
+                        <div class="detail">
+                          <a href="/movie/bi/mi/basic.nhn?code=162249" onclick="clickcr(this, 'tvw.title', '162249', '1', event);" data-index="0" class="_select_title_anchor"><strong>램페이지</strong>
+                            <div class="star_score">
+                              <span class="st_off"><span class="st_on" style="width:86.0%">평점 - 총 10점 중</span></span>
+                              <span class="score">
+                                <span class="char sc_num8"><em>8</em></span><span class="char sc_dot"><em>.</em></span><span class="char sc_num6"><em>6</em></span><span class="char sc_num0"><em>0</em></span>
+                              </span>
+                            </div>
+                          </a>
+                          <ul class="info">
+                            <li><a href="/movie/bi/mi/reviewread.nhn?nid=4619520&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4619520', '1', event);"><span class="tit">[램페이지] - '더 락'이 '더 락'하는 영화</span></a></li>
+                            <li><a href="/movie/bi/mi/reviewread.nhn?nid=4620886&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4620886', '2', event);"><span class="tit">아주 솔직하고 개인적인 영화램페이지후기 - 램페이지 조지가 열일하다</span></a></li>
+                            <li class="last"><a href="/movie/bi/mi/reviewread.nhn?nid=4620674&amp;code=162249" onclick="clickcr(this, 'tvw.list', '4620674', '3', event);"><span class="tit">램페이지 [Rampage] (2018)</span></a></li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+            			</div>
+            		</div>
+            	</div>
+          	</div>
+
+        </article>
+    </div>
+
+
+  </section>
+  <footer>
+    NAVER Copyright © NAVER Corp. All Rights Reserved.
+  </footer>
+</body>
+</html>

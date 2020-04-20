@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>영화상세</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+  <link rel="stylesheet" href="css/movie.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="js/movie.js"></script>
+  <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header>
+    <div class="navwarp">
+      <nav>
+        <h1 class="logo">LOGO</h1>
+        <ul>
+          <li><a href="main.html">영화홈</a></li>
+          <li><a href="movielist.html">영화목록</a></li>
+          <li><a href="reviewlist.html">리뷰</a></li>
+        </ul>
+      </nav>
+      <div class="top-nav">
+        <span class="gnb"><a href="#" data-toggle="modal" data-target="#login-modal">로그인</a></span>
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+        		<div class="loginmodal-container">
+        			<h1>로그인</h1><br>
+              <form class="form-signin">
+                <div class="form-group">
+                  <label for="inputid">아이디</label>
+                  <input type="text" id="inputid" class="form-control" placeholder="id" required autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="inputPwd">비밀번호</label>
+                  <input type="password" id="inputPwd" class="form-control" placeholder="Password" required>
+                </div>
+                <div id="remember" class="checkbox">
+                  <label><input type="checkbox" value="remember-me"> Remember me</label>
+                </div>
+                <button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
+
+              </form><!-- /form -->
+        			<div class="login-help">
+        				<a href="#">회원가입</a> - <a href="#">비밀번호 찾기</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
+      <div class="search">
+        <div class="srch_field_on _view">
+					<span class="ipt_srch">
+						<label for="ipt_tx_srch" id="search_placeholder" style="display: inline;">영화검색</label>
+						<input type="text" id="ipt_tx_srch" class="ipt_tx_srch" name="query" maxlength="100" accesskey="s" style="ime-mode:active;" autocomplete="off">
+						<span class="align"></span>
+					</span>
+					<button type="submit" title="검색" class="btn_srch" onclick="clickcr(this,'GNB.search','','',event); delayed_submit(this);"><span class="blind">검색</span></button>
+				</div>
+      </div>
+    </div>
+    </div>
+
+
+  </header>
+  <section>
+    <div class="content-wrap">
+      <!-- 무비상세 -->
+      <article id="moviedetail">
+
+        <div class="mv_info_area" style="display: block;">
+          <div class="mv_info">
+            <h3 class="h_movie"><a href="#">램페이지</a></h3>
+            <strong class="h_movie2" title="RAMPAGE, 2018">RAMPAGE, 2018</strong>
+            <div class="main_score">
+              <div class="score score_left">
+                <div class="uio_ntz_btn">
+                  <span class="ntz">
+                    <em class="blind">네티즌 평점</em><a href="#" class="help" id="pointHelpButtonBasic" title="네티즌 평점 도움말 보기">네티즌 평점 도움말</a>
+                  </span>
+                  <div class="ly_ntz" id="pointHelpBasic" style="display:none" z-index="20">
+                    <span></span>
+                    <strong class="blind">네티즌 평점 도움말</strong>
+                    국내 개봉작입니다. 관람하신 영화에 대한<br> 평점을 남겨주세요. 140자평 뿐 아니라 블<br>로그 영화 리뷰작성 시 등록한 별점도 함께<br> 반영됩니다.
+                    <button type="button" class="btn_close" id="pointHelpCloseButtonBasic"><em>닫기</em></button>
+                </div>
+                <div class="ly_count" id="pointNetizenCountBasic" style="display:none">
+                  <span></span>
+                  참여 <em>3,073</em>명
+                </div>
+              </div>
+                <div class="star_score ">
+                  <a href="#" id="pointNetizenPersentBasic"><span class="st_off"><span class="st_on" style="width:85.7%"></span></span><em class="num8">8</em><em class="dot">.</em><em class="num5">5</em><em class="num7">7</em></a><!-- N=a:ifo.arating -->
+                </div>
+              </div>
+              <div id="noPoint" class="score">
+                <div class="my_score_area">
+                  <a href="#">
+                    <span class="my_score"><em class="blind">내 평점</em></span>
+                    <div class="star_score">
+                      <span class="st_off"><span class="st_on" style="width:0%">0점</span></span>
+                      <span class="btn_write">등록</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <dl class="info_spec">
+              <dt class="step1"><em>개요()</em></dt>
+              <dd>
+                <p>
+                  <span>장르</span>
+                  <span>국가</span>
+                  <span>상영시간 분 </span>
+                  <span>개봉일</span>
+                </p>
+              </dd>
+              <dt class="step2"><em>감독</em></dt>
+              <dd><p>감독이름</p></dd>
+              <dt class="step3"><em>출연</em></dt>
+              <dd><p>출연진1,출연진2</p></dd>
+              <dt class="step4"><em>등급</em></dt>
+              <dd>
+                <p>[국내]<a href="#">12세 관람가</a></p>
+              </dd>
+            </dl>
+          </div>
+          <!-- 포스터 -->
+          <div class="poster">
+            <a href="#"><img src="images/poster/20.jpg" alt="램페이지" width="203" height="290" onerror="this.src='images/dft_img203x290.png'"><span>포스터 크게보기</span></a>
+          </div>
+          <!-- //포스터 -->
+        </div>
+
+        <div class="sub_tab_area">
+          <!-- [D] on, off로 컨트롤 -->
+          <ul id="movieEndTabMenu" class="end_sub_tab">
+            <!-- <li><a href="#" title="리뷰" class="tab06_on"><em>리뷰</em></a></li> -->
+          </ul>
+        </div>
+        <div class="section_group section_group_frst">
+          <div class="obj_section">
+            <div class="ifr_module2" id="reviewTab">
+              <div class="ifr_area">
+                <div class="review">
+                  <div class="title_area">
+                    <h4 class="h_review"><strong class="blind">리뷰</strong></h4>
+                    <a href="reviewform.html" class="wrt_review"><em>리뷰쓰기</em></a>
+                  </div>
+                  <div class="top_behavior">
+                    <span class="cnt">총<em>130</em>건</span>
+                  </div>
+                  <ul class="rvw_list_area">
+                    <li>
+                      <a href="#"><strong>램페이지: ONLY 파괴잼</strong></a>
+                      <span class="user"><a href="#">c106****</a> <em>2018.04.14</em></span>
+                      <p><a href="#">브래드 페이튼 감독 / 107분 / 12세 관람가드웨인 존슨, 제이슨 라일스, 나오미 해리스, 제프리 딘 모건..전문가 평점: 로튼토마토 지수 55%(평점: 5.3/10), 메타스코어 45점, 4월 14일 기준관객 평점: 로튼팝콘 지수 80%(평점: 4.2/5), ...</a></p>
+          					</li>
+                  </ul>
+                  <div class="paging">
+                    <div>
+                      <a id="pagerTagAnchor1" href=""><span class="on">1</span></a>
+                      <a id="pagerTagAnchor2" href=""><span>2</span></a>
+                      <a id="pagerTagAnchor3" href=""><span>3</span></a>
+                      <a id="pagerTagAnchor4" href=""><span>4</span></a>
+                      <a id="pagerTagAnchor5" href=""><span>5</span></a>
+                      <a id="pagerTagAnchor6" href=""><span>6</span></a>
+                      <a id="pagerTagAnchor7" href=""><span>7</span></a>
+                      <a id="pagerTagAnchor8" href=""><span>8</span></a>
+                      <a id="pagerTagAnchor9" href=""><span>9</span></a>
+                      <a id="pagerTagAnchor10" href=""><span>10</span></a>
+                      <a id="pagerTagAnchor2" href="" title="다음" class="pg_next"><em>다음</em></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </article>
+    </div>
+  </section>
+  <footer>
+    NAVER Copyright © NAVER Corp. All Rights Reserved.
+  </footer>
+</body>
+</html>

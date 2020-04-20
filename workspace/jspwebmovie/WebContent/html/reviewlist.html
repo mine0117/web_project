@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>영화</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+  <link rel="stylesheet" href="css/movie.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="js/movie.js"></script>
+  <!-- IE8 에서 HTML5 요소와 미디어 쿼리를 위한 HTML5 shim 와 Respond.js -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <header>
+    <div class="navwarp">
+      <nav>
+        <h1 class="logo">LOGO</h1>
+        <ul>
+          <li><a href="main.html">영화홈</a></li>
+          <li><a href="movielist.html">영화목록</a></li>
+          <li><a href="reviewlist.html">리뷰</a></li>
+        </ul>
+      </nav>
+      <div class="top-nav">
+        <span class="gnb"><a href="#" data-toggle="modal" data-target="#login-modal">로그인</a></span>
+
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+          <div class="modal-dialog">
+        		<div class="loginmodal-container">
+        			<h1>로그인</h1><br>
+              <form class="form-signin">
+                <div class="form-group">
+                  <label for="inputid">아이디</label>
+                  <input type="text" id="inputid" class="form-control" placeholder="id" required autofocus>
+                </div>
+                <div class="form-group">
+                  <label for="inputPwd">비밀번호</label>
+                  <input type="password" id="inputPwd" class="form-control" placeholder="Password" required>
+                </div>
+                <div id="remember" class="checkbox">
+                  <label><input type="checkbox" value="remember-me"> Remember me</label>
+                </div>
+                <button class="btn btn-lg btn-success btn-block" type="submit">로그인</button>
+
+              </form><!-- /form -->
+        			<div class="login-help">
+        				<a href="#">회원가입</a> - <a href="#">비밀번호 찾기</a>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+
+      <div class="search">
+        <div class="srch_field_on _view">
+					<span class="ipt_srch">
+						<label for="ipt_tx_srch" id="search_placeholder" style="display: inline;">영화검색</label>
+						<input type="text" id="ipt_tx_srch" class="ipt_tx_srch" name="query" maxlength="100" accesskey="s" style="ime-mode:active;" autocomplete="off">
+						<span class="align"></span>
+					</span>
+					<button type="submit" title="검색" class="btn_srch" onclick="clickcr(this,'GNB.search','','',event); delayed_submit(this);"><span class="blind">검색</span></button>
+				</div>
+      </div>
+    </div>
+    </div>
+
+
+  </header>
+  <section>
+    <div class="content-wrap">
+      <!-- 리뷰리스트 -->
+      <article id="reviewlist">
+        <div class="old_layout old_community">
+          <h4 class="tlt"><img src="images/tlt_review_movie.gif" alt="영화 리뷰" width="65" height="15"></h4>
+          <h5 class="sub_tlt"><img src="images/stlt_all_list.gif" alt="전체 리스트" width="59" height="13">
+            <div class="h5_right_txt">총 <strong class="c_88 fs_11">2112542</strong>개의 리뷰가 있습니다</div>
+          </h5>
+
+          <table cellspacing="0" summary="게시물 목록" class="list_table_1 list_h48">
+              <colgroup><col width="83"><col width="*"><col width="73"><col width="72"></colgroup>
+            <thead>
+              <tr>
+                <th scope="col">영화</th>
+                <th scope="col">제목</th>
+                <th scope="col" class="al">글쓴이·날짜</th>
+                <th scope="col" class="al" style="padding-left:20px;">별점</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="movie"><a href="moviedetail.html">독전</a></td>
+                <td class="title"><a href="reviewdetail.html">출연진 목록에...</a></td>
+                <td class="author num"><a href="">syuk****</a><br>18.04.19</td>
+                <td>
+                  <div class="point_type_1 fl">
+                    <div class="mask" style="width:100%"><img src="images/point_type_1_bg_on.gif" width="59" height="11" alt="10점">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="paging">
+            <div>
+              <a href=""><span class="on">1</span></a>
+              <a href=""><span>2</span></a>
+              <a href=""><span>3</span></a>
+              <a href=""><span>4</span></a>
+              <a href=""><span>5</span></a>
+              <a href=""><span>6</span></a>
+              <a href=""><span>7</span></a>
+              <a href=""><span>8</span></a>
+              <a href=""><span>9</span></a>
+              <a href=""><span>10</span></a>
+              <a href="" title="다음" class="pg_next"><em>다음</em></a>
+            </div>
+          </div>
+
+          <fieldset class="form_board_search pt_18">
+            <form name="searchListForm" method="get">
+              <select size="1" name="st" class="select_type_1">
+                <option value="title">제목</option>
+                <option value="userid">글쓴이</option>
+                <option value="movie">관련영화</option>
+              </select>
+              <input type="hidden" name="mcode" value="">
+              <input name="sword" type="text" style="width:145px; ime-mode:active;" title="검색어입력" class="input_type_text_4">
+              <input name="" type="image" src="images/btn_search.gif" alt="검색">
+            </form>
+          </fieldset>
+        </div>
+
+
+      </article>
+    </div>
+  </section>
+  <footer>
+    NAVER Copyright © NAVER Corp. All Rights Reserved.
+  </footer>
+</body>
+</html>
