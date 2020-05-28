@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<head>
+   <title>REST테스트</title> 
+  <style type="text/css">
+     td,th{padding: 5px}
+     .skyblue{background-color: skyblue;
+              width: 80px;
+              text-align: left}
+  </style>
+  
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  /* 이동현
+  $.ajax({
+   type:'POST',
+   url:url,
+   data:data,   -- json도 사용가능  
+   success:success,
+   dataType:datatype
+});
+
+※ 자주사용하는 속성
+url:문자열 - 요청url 설정 ,데이터를 보내고자하는 주소   ex)  <form action="">
+type:문자열 - GET/POST설정
+data:객체,문자열 - 요청 매개변수 설정   ex) <input type="text"  name="irum">
+dataType : 서버에서 내려온 data형식    ex) default : xml, json, script, text, html
+success:함수 - 성공시 호출할 함수 설정
+async:불리언 - 동기/비동기 설정
+error:함수 - 실패시 호출할 함수 설정
+  */
+  
+     //var path="http://localhost:8097/hrmboot/api";
+  
+     function showUpForm(id){
+         $('#form').hide();
+         $('#upform').show(500);
+         $.ajax({
+            type:'GET',
+            url:'./api/employee/'+id,
+            dataType:'json',
+            success:function(data){
+               $('#upform input[name=id]').val(data.id);
+               $('#upform input[name=name]').val(data.name);
+               $('#upform input[name=mailid]').val(data.mailid);
+               $('#upform input[name=title]').val(data.title);
+               $('#upform input[name=start_date]').val(data.start_date);
+               $('#upform input[name=salary]').val(data.salary);
+               $('#upform input[name=commission_pct]').val(data.commission_pct);
+               $('#upform input[name=dept_name]').val(data.dept_name);
+               $('#upform input[name=manager_id]').val(data.manager_id);
+               $('#upform input[name=dept_id]').val(data.dept_id);
+            }
+           });
+     }//수정폼 보이기
+   
+  
+      function listPrint(){
+        $.ajax({
+            type:'GET',
+            url:'./api/employee/all',
+            dataType:'json',
+            success:function(data){
+               var htmlTxt='<ul>';
+               $.each(data,function(index,value){
+                   htmlTxt += '<li><a href="javascript:showUpForm('+value.id+')">'+value.name+'</li>';                    
+               });
+               htmlTxt+='</ul>'
+               $('#list').html(htmlTxt);
+            }
+        });
+      }//목록보기
+      
+     $(document).ready(function(){
+       $('#showList').click(function(){
+          listPrint();
+       });//목록보기
+       
+        $('#showForm').click(function(){
+          $('#upform').hide();
+          $('#form').show(500);
+       });//입력폼보기
+       
+       
+        $('#bt_insert').click(function(){           
+          $.ajax({
+            type:'POST',
+            url:'./api/employee',
+            dataType: "json",
+              contentType: "application/json;charset=utf-8",
+             data:  JSON.stringify({
+                //id: $("#form input[name=id]").val(),
+                name: $("#form input[name=name]").val(),
+                mailid: $("#form input[name=mailid]").val(),
+                title: $("#form input[name=title]").val(),
+                start_date: $("#form input[name=start_date]").val(),
+                salary: $("#form input[name=salary]").val(),
+                commission_pct: $("#form input[name=commission_pct]").val(),
+                manager_id: $("#form input[name=manager_id]").val(),
+                dept_id: $("#form input[name=dept_id]").val()        
+              })
+              ,
+            success:function(data){                
+               $('#form').hide();
+               listPrint();
+            }
+         });
+        });//입력요청
+        
+
+        $('#bt_update').click(function(){   
+           $.ajax({
+             type:'PUT',
+             url:'./api/employee',
+             headers:{"Content-Type":"application/json"},
+             data:  JSON.stringify({
+                    id: $("#upform input[name=id]").val(),
+                    name: $("#upform input[name=name]").val(),
+                    mailid: $("#upform input[name=mailid]").val(),
+                    title: $("#upform input[name=title]").val(),
+                    start_date: $("#upform input[name=start_date]").val(),
+                    salary: $("#upform input[name=salary]").val(),
+                    commission_pct: $("#upform input[name=commission_pct]").val(),
+                    manager_id: $("#upform input[name=manager_id]").val(),
+                    dept_id: $("#upform input[name=dept_id]").val()
+                  })
+                  ,
+             success:function(data){       
+                $('#upform').hide();
+                listPrint();
+             }
+            });
+        });//수정요청
+        
+
+        $('#bt_del').click(function(){  
+           $.ajax({
+             type:'DELETE',
+             url:'./api/employee/'+$("#upform input[name=id]").val(),             
+             success:function(data){
+                $('#upform').hide();
+                listPrint();
+             }
+            });   
+        });//삭제요청
+        
+        /*
+          <RESTful방식>ㅣ
+                                                         HTTP요청방식
+                                                      ($.ajax()의 type속성을 통해)
+                                                         
+                입력요청 :   http://localhost:8080/person/form  +  POST
+                조회요청 :   http://localhost:8080/person/all   +  GET
+                조회요청 :   http://localhost:8080/person/13    +  GET
+                삭제요청 :   http://localhost:8080/person/13    +  DELETE
+                수정요청 :   http://localhost:8080/person       +  PUT
+        
+                
+           참고) 
+           JSON.stringify( 객체 );     JSON.stringify( { key1:value, key2:value } ); ==>  "{ key1:value, key2:value }"
+           JSON.parse( 문자열  );      JSON.parse( "{ key1:value, key2:value }");  ==>  { key1:value, key2:value }
+        */
+        
+       
+     });//ready
+  </script>
+</head>
+ 
+<body>
+  <h1>
+   Hello world!  
+  </h1>
+  <h3>REST테스트</h3>
+  <button id="showList">사람목록보기</button> 
+  <button id="showForm">사람입력</button>
+  
+  <hr>
+  <div id="list"></div>  
+  <div id="form" style="display: none">
+  <h3>입력폼</h3>
+<table class="content_table">
+<colgroup>
+      <col style="width:30%;" />
+      <col style="width:70%;" />                     
+</colgroup>   
+<tr>
+<th>아이디</th>
+<td><input data-msg="아이디" type="text" name="id" id="_id" size="30" /></td>
+</tr>
+<tr>
+<th>이름</th>
+<td><input data-msg="이름" type="text" name="name" id="_name" size="30" /></td>
+</tr>
+<tr>
+<th>이메일</th>
+<td><input data-msg="이메일" type="text" name="mailid"  id="_mailid" size="30" /></td>
+</tr>
+<tr>
+<th>고용일</th>
+<td><input data-msg="고용일" type="date" name="start_date"  id="_start_date" size="30" /></td>
+</tr>
+<tr>
+<tr>
+<th>관리자</th>
+<td>
+<input data-msg="관리자" type="text" name="manager_id"  id="_manager_id" size="30" />
+</td>
+</tr>
+<tr>
+<th>직책</th>
+<td>
+<input data-msg="직책" type="text" name="title"  id="_title" size="30" />
+</td>
+</tr>
+<tr>
+<th>부서</th>
+<td>
+<input data-msg="부서명" type="text" name="dept_id"  id="_dept_id" size="30" />
+</td>
+</tr>
+<tr>
+<th>월급</th>
+<td><input data-msg="월급" type="number" name="salary"  id="_salary" size="30" min="0" /></td>
+</tr>
+<tr>
+<th>커미션</th>
+<td><input data-msg="커미션" type="number" name="commission_pct"  id="_commission_pct" size="30" min="0" /></td>
+</tr>
+<tr>
+         <td colspan="2">
+           <input type="button" value="추가" id="bt_insert">
+           <input type="reset" value="취소" >
+         </td>
+      </tr>
+</table>
+  </div>
+  <div id="upform" style="display:none">
+  <h3>수정폼</h3>
+  <hr>
+<table class="content_table">
+<colgroup>
+      <col style="width:30%;" />
+      <col style="width:70%;" />                     
+</colgroup>   
+<tr>
+<th>아이디</th>
+<td><input data-msg="아이디" type="text" name="id" id="_id" size="30" /></td>
+</tr>
+<tr>
+<th>이름</th>
+<td><input data-msg="이름" type="text" name="name" id="_name" size="30" /></td>
+</tr>
+<tr>
+<th>이메일</th>
+<td><input data-msg="이메일" type="text" name="mailid"  id="_mailid" size="30" /></td>
+</tr>
+<tr>
+<th>고용일</th>
+<td><input data-msg="고용일" type="date" name="start_date"  id="_start_date" size="30" /></td>
+</tr>
+<tr>
+<tr>
+<th>관리자</th>
+<td>
+<input data-msg="관리자" type="text" name="manager_id"  id="_manager_id" size="30" />
+</td>
+</tr>
+<tr>
+<th>직책</th>
+<td>
+<input data-msg="직책" type="text" name="title"  id="_title" size="30" />
+</td>
+</tr>
+<tr>
+<th>부서</th>
+<td>
+<input data-msg="부서명" type="text" name="dept_id"  id="_dept_id" size="30" />
+</td>
+</tr>
+<tr>
+<th>월급</th>
+<td><input data-msg="월급" type="number" name="salary"  id="_salary" size="30" min="0" /></td>
+</tr>
+<tr>
+<th>커미션</th>
+<td><input data-msg="커미션" type="number" name="commission_pct"  id="_commission_pct" size="30" min="0" /></td>
+</tr>
+<tr>
+         <td colspan="2">
+           <input type="button" value="수정" id="bt_update">
+           <input type="reset" value="취소" >
+           <input type="button" value="삭제" id="bt_del">
+         </td>
+      </tr>
+</table>
+  </div>
+  <div id="result"></div>
+</body>
+</html>

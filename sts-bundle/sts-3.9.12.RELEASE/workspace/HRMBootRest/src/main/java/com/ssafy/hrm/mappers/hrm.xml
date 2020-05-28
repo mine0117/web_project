@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.ssafy.hrm">
+<!--  <resultMap type="com.ssafy.edu.vue.dto.EmployeeDto" id="emps">
+       <result column="publish_date" property="publishDate"/>
+ </resultMap> -->
+ <select id="findAllEmployees" resultType="com.ssafy.hrm.dto.EmployeeDto">
+select e.id id, e.name name, e.mailid mailid, e.start_date start_date, 
+e.manager_id manager_id, e.title title,  e.dept_id dept_id, d.name dept_name,                     
+	ifnull(e.salary,0.0) salary, ifnull(e.commission_pct,0.0) commission_pct                                        
+	from s_emp e join  s_dept d on e.dept_id=d.dept_id order by e.id 
+<!-- 	select id, name, mailid, start_date, manager_id, title, dept_id    ,                      
+	ifnull(salary,0.0) salary, ifnull(commission_pct,0.0) commission_pct                                        
+	from s_emp order by id  -->      
+ </select>
+  
+     <insert id="addEmployee" parameterType="com.ssafy.hrm.dto.EmployeeDto" >
+    		INSERT INTO s_emp	     
+			(id, name, mailid, start_date, manager_id, title, dept_id,      SALARY,       COMMISSION_PCT)
+			VALUES(
+            #{id},#{name},#{mailid},#{start_date},
+				<if test="manager_id != '' and manager_id != null and  manager_id != 0 " >
+				#{manager_id}
+			</if>       		
+			<if test="manager_id == '' or manager_id == null or manager_id == 0 " >
+				null
+			</if>  
+            ,#{title},#{dept_id},#{salary},
+			<if test="commission_pct != '' and commission_pct != null and  commission_pct != 0 " >
+				#{commission_pct}
+			</if>       		
+			<if test="commission_pct == '' or commission_pct == null or commission_pct == 0 " >
+				null
+			</if>  
+	        )
+    </insert>
+      <select id="findAfterAdd"  resultType="java.lang.Integer">
+	   		SELECT MAX(id)  FROM s_emp            
+    </select>
+</mapper>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/table.css"/>
+<title>SSAFY</title>
+</head>
+<body>
+<div id="body_wrap">
+<div id="main_wrap">
+<div id="header_wrap">
+<h3 style="text-align: center">사원추가</h3>	
+</div>					
+<div id="content_wrap">	
+<form action="" method="post" id="_addempForm" name="addempForm" >
+<table class="content_table">
+<colgroup>
+		<col style="width:30%;" />
+		<col style="width:70%;" />							
+</colgroup>	
+<tr>
+<th>이름</th>
+<td><input data-msg="이름" type="text" name="name" id="_name" size="30" /></td>
+</tr>
+<tr>
+<th>이메일</th>
+<td><input data-msg="이메일" type="text" name="mailid"  id="_mailid" size="30" /></td>
+</tr>
+<tr>
+<th>고용일</th>
+<td><input data-msg="고용일" type="date" name="start_date"  id="_start_date" size="30" /></td>
+</tr>
+<tr>
+<tr>
+<th>관리자</th>
+<td>
+ <select name='manager_id'  id="_manager_id" >
+ </select> <span>관리자를 선택하세요.</span>
+</td>
+</tr>
+<tr>
+<th>직책</th>
+<td>
+ <select name='title' id="_title">
+</select> <span>직책을 선택하세요.</span>
+</td>
+</tr>
+<tr>
+<th>부서</th>
+<td>
+ <select name='dept_id' id="_dept_id">
+</select> <span>부서를 선택하세요.</span>
+</td>
+</tr>
+<tr>
+<th>월급</th>
+<td><input data-msg="월급" type="number" name="salary"  id="_salary" size="30" min="0" /></td>
+</tr>
+<tr>
+<th>커미션</th>
+<td><input data-msg="커미션" type="number" name="commission_pct"  id="_commission_pct" size="30" min="0" /></td>
+</tr>
+<tr>
+<td colspan="2" style="height:50px; text-align:center;">
+<button type="submit" value='사원추가' id='_btnadd'>사원추가</button></td>
+</tr>
+</table>
+</form>
+<button id='_btnemplist'>사원보기</button>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+$("#_btnemplist").click(function(){
+	alert("사원 목록으로 이동합니다.");
+	location.href='emps.html';
+});
+$(function(){
+	$("#_btnadd").click(function(e) {
+		 if ($("#_name").val() == "") {
+			alert($("#_name").attr("data-msg") + " 입력해 주십시요.");
+			$("#_name").focus();
+		} else if ($("#_mailid").val() == "") {
+			alert($("#_mailid").attr("data-msg") + " 입력해 주십시요.");
+			$("#_mailid").focus();
+		}else if ($("#_start_date").val() == "") {
+			alert($("#_start_date").attr("data-msg") + " 입력해 주십시요.");
+			$("#_start_date").focus();
+		}else if ($("#_manager_id").val() == "") {
+			alert($("#_manager_id").attr("data-msg") + " 입력해 주십시요.");
+			$("#_manager_id").focus();
+		} else if ($("#_title").val() == "") {
+			alert($("#_title").attr("data-msg") + " 입력해 주십시요.");
+			$("#_title").focus();
+		}else if ($("#_dept_id").val() == "") {
+			alert($("#_dept_id").attr("data-msg") + " 입력해 주십시요.");
+			$("#_dept_id").focus();
+		}else if ($("#_salary").val() == "") {
+			alert($("#_salary").attr("data-msg") + " 입력해 주십시요.");
+			$("#_salary").focus();
+		}else if ($("#_commission_pct").val() == "") {
+			alert($("#_commission_pct").attr("data-msg") + " 입력해 주십시요.");
+			$("#_commission_pct").focus();
+		}
+		else {
+			e.preventDefault();
+			addEmployee();
+		} 
+	});
+	const basicurl="http://localhost:8097/hrmboot/api";
+	$.ajax({
+		type:"GET",   //전송방식
+		url:basicurl+"/findAllEmployees", //서버 url
+		//data:"fname="+fname, //파라미터 fname(이름)=fname(값) 
+		async:true, //비동기화 true
+		success:function(msg){ //데이터를 성공적으로 받으면 실행
+			outputList1(msg);    //데이터 받아서 outputList실행
+		}
+	});
+	$.ajax({
+		type:"GET",   //전송방식
+		url:basicurl+"/findAllTitles", //서버 url
+		//data:"fname="+fname, //파라미터 fname(이름)=fname(값) 
+		async:true, //비동기화 true
+		success:function(msg){ //데이터를 성공적으로 받으면 실행
+			outputList2(msg);    //데이터 받아서 outputList실행
+		}
+	});
+	$.ajax({
+		type:"GET",   //전송방식
+		url:basicurl+"/findAllDepartments", //서버 url
+		//data:"fname="+fname, //파라미터 fname(이름)=fname(값) 
+		async:true, //비동기화 true
+		success:function(msg){ //데이터를 성공적으로 받으면 실행
+			outputList3(msg);    //데이터 받아서 outputList실행
+		}
+	});
+});
+
+function outputList1(data){
+	  $("#_manager_id").empty();
+	  var option1=$("<option></option>");
+	  $(option1).attr("value",'');
+	  $(option1).html('관리자를 선택하세요.');
+	  $("#_manager_id").append(option1);
+	  data.forEach(function myFunction(item, index) {
+		  var option=$("<option></option>");
+		  $(option).attr("value",item.id);
+		  $(option).html(item.name);
+		  $("#_manager_id").append(option);
+	  });
+}
+function outputList2(data){
+	  $("#_title").empty();
+	  var option1=$("<option></option>");
+	  $(option1).attr("value",'');
+	  $(option1).html('직책을 선택하세요.');
+	  $("#_title").append(option1);
+	  data.forEach(function myFunction(item, index) {
+		  var option=$("<option></option>");
+		  $(option).attr("value",item.title);
+		  $(option).html(item.title);
+		  $("#_title").append(option);
+	  });
+}
+function outputList3(data){
+	  $("#_dept_id").empty();
+	  var option1=$("<option></option>");
+	  $(option1).attr("value",'');
+	  $(option1).html('부서를 선택하세요.');
+	  $("#_dept_id").append(option1);
+	  data.forEach(function myFunction(item, index) {
+		  var option=$("<option></option>");
+		  $(option).attr("value",item.dept_id);
+		  $(option).html(item.name+"("+item.dept_id+")");
+		  $("#_dept_id").append(option);
+	  });
+}
+
+
+function addEmployee(){
+	const basicurl="http://localhost:8097/hrmboot/api";
+	alert('addEmployee');
+	//alert($("#_addempForm").serialize());
+
+	$.ajax({
+		type:"POST",   //전송방식
+		url:basicurl+"/employee", //서버 url
+		dataType: "json",
+        contentType: "application/json;charset=utf-8",
+		 data:
+			 JSON.stringify(
+					 {
+					"commission_pct": ""+$("#_commission_pct").val(),
+					"dept_id": ""+$("#_dept_id").val(),
+					"mailid": ""+$("#_mailid").val(),
+					"manager_id": ""+$("#_manager_id").val(),
+					"name": ""+$("#_name").val(),
+					"salary": ""+$("#_salary").val(),
+					"start_date":""+$("#_start_date").val(),
+					 "title": ""+$("#_title").val() 
+					 }
+			    	), 
+		async:true, //비동기화 true
+		success:function(msg){ //데이터를 성공적으로 받으면 실행
+			if(msg.state=='succ'){
+	    		  alert(msg.name+"이 실행되었습니다.");
+	    		  location.href='./emps.html';
+	    	  }else{
+	    		  alert(msg.name+"에 실패하였습니다.");
+	    		  location.href='./emps.html';
+	    	  }
+		}
+	});
+}
+
+ </script>
+</body>
+</html>

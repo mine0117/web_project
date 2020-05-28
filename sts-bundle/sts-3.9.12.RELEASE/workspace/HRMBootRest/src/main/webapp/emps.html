@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang='ko'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/table.css"/>
+<title>SSAFY</title>
+</head>
+<body>
+<a href='emps2.html'>이름으로 찾기</a>
+
+<div id="body_wrap">
+<div id="main_wrap">
+<div id="header_wrap">
+<h3 style="text-align: center">사원목록</h3>	
+</div>					
+<div id="content_wrap">	
+   <div id="_emplist"></div>
+   <button id='_btnemplist'>사원보기</button>
+   <button id='_btnadd'>사원추가</button>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+var path="http://localhost:8097/hrmboot/api";
+$(function(){
+	showallcust();
+});
+$("#_btnemplist").click(function(){
+	showallcust();
+});
+$("#_btnadd").click(function(){
+	alert("사원 추가로 이동합니다.");
+	location.href='addemp.html';
+});
+
+function showallcust(){
+	$.ajax({
+		   type: "GET",
+           url: path+"/employee/all",
+		   async: true,		   
+		   success: function(msg){
+				outputList(msg);
+		   }
+	 });
+}
+function outputList(data){
+	  $("#_emplist").empty();
+	  var table=$("<table class='list_table' style='width:85%;'></table>");
+	  var colg=$("<colgroup></colgroup>");
+	  var col1=$("<col width='15%'/>");
+	  var col2=$("<col width='20%'/>");
+	  var col3=$("<col width='20%'/>");
+	  var col4=$("<col width='20%'/>");
+	  var col5=$("<col width='auto'/>");
+	  var col6=$("<col width='10%'/>");
+	  $(colg).append(col1,col2,col3,col4,col5,col6);
+	  $(table).append(colg);
+	  var trh=$("<tr></tr>");
+	  var tdh1=$("<th>사원 아이디</th>");
+	  var tdh2=$("<th>사원명</th>");
+	  var tdh3=$("<th>부서</th>");
+	  var tdh4=$("<th>직책</th>");
+	  var tdh5=$("<th>연봉</th>");
+	  var tdh6=$("<th>퇴사</th>");
+	  $(trh).append(tdh1,tdh2,tdh3,tdh4,tdh5,tdh6);
+	  $(table).append(trh);
+	  
+	  data.forEach(function myFunction(item, index) {
+		  var tr=$("<tr></tr>");
+		  var td1=$("<td onclick='show_detail(this)' ></td>");
+		  $(td1).html(item.id);
+		  $(td1).attr("id","_id"+item.id);
+		  var td2=$("<td></td>");
+		  $(td2).html(item.name);
+		  var td3=$("<td></td>");
+		  $(td3).html(item.dept_name);
+		  var td4=$("<td></td>");
+		  $(td4).html(item.title);
+		  var td5=$("<td></td>");
+		  $(td5).html(item.salary);
+		  var td6=$("<td  onclick='delete_emp(this)' class='button'><input type='button' class='blue' value='퇴사'/></td>");
+		  $(td6).attr("id","_id"+item.id);
+		  $(tr).append(td1,td2,td3,td4,td5,td6);
+		  $(table).append(tr);
+	  });
+	  $("#_emplist").append(table);
+}
+function deleteemp(_id){
+	$.ajax({
+		   type: "POST",
+           url: path+"/deleteEmployee/"+_id,
+		   async: true,	
+		   success: function(msg){
+			   resultdeleteemp(msg);
+		   }
+	 });
+}
+/* {
+	  "name": "deleteEmployee",
+	  "count": true,
+	  "state": "succ"
+	} */
+function resultdeleteemp(result){
+	if(result.state=='succ'){
+		alert('삭제에 성공하였습니다.');
+		showallcust();
+	}else {
+		alert('삭제에 실패하였습니다.');
+		showallcust();
+	}
+}
+function delete_emp(a){
+	var b=$(a).attr("id").substr(3);
+	alert(b+"를 삭제합니다.");
+	deleteemp(b);
+}
+function show_detail(a){
+	var b=$(a).attr("id").substr(3);
+	alert(b+"의 상세 내용을 봅니다.");
+	location.href='detailemp.html?id='+b;
+}
+</script>
+</body>
+</html>
